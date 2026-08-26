@@ -14,16 +14,18 @@ export function MobileShell({
   subtitle,
   children,
 }: {
-  title: string;
+  title?: string;
   subtitle?: string;
   children: ReactNode;
 }) {
   return (
     <div className="mx-auto min-h-screen w-full max-w-[26rem] px-5 pb-28 pt-8">
-      <header className="mb-6">
-        <h1 className="text-2xl text-foreground">{title}</h1>
-        {subtitle ? <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p> : null}
-      </header>
+      {title ? (
+        <header className="mb-6">
+          <h1 className="text-2xl text-foreground">{title}</h1>
+          {subtitle ? <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p> : null}
+        </header>
+      ) : null}
       <main className="space-y-5">{children}</main>
 
       <nav className="fixed inset-x-0 bottom-0 z-20 flex justify-center pb-4">
