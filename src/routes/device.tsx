@@ -25,7 +25,7 @@ export const Route = createFileRoute("/device")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: DevicePage;
+  component: DevicePage,
 });
 
 function DevicePage() {

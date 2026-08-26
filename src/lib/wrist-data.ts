@@ -113,3 +113,35 @@ export const severityStyles: Record<Severity, { label: string; dot: string; chip
   notice: { label: "留意", dot: "bg-sky", chip: "bg-sky/20 text-foreground" },
   warn: { label: "预警", dot: "bg-warn", chip: "bg-warn/20 text-foreground" },
 };
+
+export const vibrationStages: {
+  label: string;
+  desc: string;
+  pattern: number[];
+  wave: number[];
+}[] = [
+  {
+    label: "微语",
+    desc: "第一层：像羽毛落下，仅在手腕内侧轻点两下，不打断你手上的事。",
+    pattern: [60, 120, 60],
+    wave: [18, 26, 20, 30, 22, 16, 12],
+  },
+  {
+    label: "轻抚",
+    desc: "第二层：三次渐强的短震，提示你可以放下鼠标做一次舒展。",
+    pattern: [90, 120, 140, 120, 190],
+    wave: [20, 34, 46, 58, 44, 30, 22],
+  },
+  {
+    label: "坚定",
+    desc: "第三层：连续波浪式加压震动，直到姿势回到安全区间才停。",
+    pattern: [140, 100, 200, 100, 260, 100, 320],
+    wave: [26, 44, 62, 80, 96, 70, 48],
+  },
+];
+
+export const correctionLog = [
+  { time: "15:26", text: "腕部背屈 34°，气囊缓慢充压 6 秒，已回到中立位。" },
+  { time: "13:48", text: "拇指侧支撑略松，自动补压 2 格。" },
+  { time: "10:12", text: "长时间下垂，托举支撑维持了 4 分钟。" },
+];
