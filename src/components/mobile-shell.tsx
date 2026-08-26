@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Activity, BellRing, Home, Sparkles } from "lucide-react";
+import { Activity, BellRing, Home, Sparkles, Watch } from "lucide-react";
 import type { ReactNode } from "react";
 
 const tabs = [
@@ -7,6 +7,7 @@ const tabs = [
   { to: "/monitor", label: "监测", icon: Activity },
   { to: "/alerts", label: "预警", icon: BellRing },
   { to: "/advice", label: "建议", icon: Sparkles },
+  { to: "/device", label: "护腕", icon: Watch },
 ] as const;
 
 export function MobileShell({
