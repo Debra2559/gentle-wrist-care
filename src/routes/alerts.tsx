@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { IPAvatar } from "@/components/ip-anan";
 import { MobileShell } from "@/components/mobile-shell";
+
 import { alerts, severityStyles } from "@/lib/wrist-data";
 
 export const Route = createFileRoute("/alerts")({
@@ -21,11 +23,13 @@ export const Route = createFileRoute("/alerts")({
 function AlertsPage() {
   return (
     <MobileShell title="智能预警" subtitle="只在需要的时候轻轻提醒你">
-      <section className="card-soft p-5">
+      <section className="card-soft flex items-center gap-4 p-5">
+        <IPAvatar className="h-14 w-14" />
         <p className="text-sm leading-relaxed">
           今天共 <span className="font-display text-lg">1</span> 条预警、2 条留意提示。整体节奏比上周更平稳。
         </p>
       </section>
+
 
       <div className="space-y-4">
         {alerts.map((a) => {

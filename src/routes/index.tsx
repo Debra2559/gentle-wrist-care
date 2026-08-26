@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BatteryMedium, Moon, Thermometer, Waves } from "lucide-react";
 
-import heroImage from "@/assets/hero-wrist.jpg";
+import { IPStage, IPWhisper } from "@/components/ip-anan";
 import { MobileShell } from "@/components/mobile-shell";
 import { alerts, severityStyles, todayStats } from "@/lib/wrist-data";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,13 +48,7 @@ function Index() {
   return (
     <MobileShell title="早安，今天也慢一点" subtitle={`护腕已同步 · ${todayStats.syncedAt}`}>
       <section className="card-soft overflow-hidden">
-        <img
-          src={heroImage}
-          alt="水彩风格的手腕与柔软护腕插画"
-          width={1024}
-          height={768}
-          className="h-40 w-full object-cover"
-        />
+        <IPStage line="我先替你看着手腕，今天慢慢来就好。" />
         <div className="flex items-center gap-4 p-5">
           <Ring value={todayStats.wearMinutes} max={todayStats.wearGoal} />
           <div className="min-w-0 space-y-1">
@@ -67,6 +62,7 @@ function Index() {
           </div>
         </div>
       </section>
+
 
       <section className="grid grid-cols-2 gap-4">
         <MetricCard
@@ -109,6 +105,11 @@ function Index() {
           现在做一次舒展
         </Link>
       </section>
+
+      <section className="card-soft p-5">
+        <IPWhisper text="安安记着你的节奏：今天已经比昨天多休息了两次，手腕会慢慢记得这份温柔。" />
+      </section>
+
     </MobileShell>
   );
 }
