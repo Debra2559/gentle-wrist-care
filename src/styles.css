@@ -124,3 +124,25 @@
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow-float);
 }
+
+@utility ip-stage {
+  background:
+    radial-gradient(120% 90% at 80% 100%, color-mix(in oklab, var(--blush) 35%, transparent), transparent 70%),
+    radial-gradient(110% 90% at 10% 0%, color-mix(in oklab, var(--sky) 40%, transparent), transparent 72%),
+    color-mix(in oklab, var(--card) 70%, transparent);
+}
+
+@utility ip-float {
+  animation: ip-float 7s ease-in-out infinite;
+}
+
+@keyframes ip-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
