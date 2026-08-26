@@ -123,3 +123,35 @@ export function IPHero({
     </section>
   );
 }
+
+/** 页面开场：安安半身探出，与标题构成留白式主视觉。 */
+export function IPIntro({
+  eyebrow,
+  title,
+  line,
+}: {
+  eyebrow: string;
+  title: string;
+  line: string;
+}) {
+  return (
+    <section className="relative -mx-5 overflow-hidden px-5 pb-3 pt-1">
+      <div className="ip-aura breathe pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full" />
+      <div className="relative grid grid-cols-[minmax(0,1fr)_auto] items-end gap-2">
+        <div className="pb-2">
+          <p className="text-[0.62rem] tracking-[0.38em] text-muted-foreground">{eyebrow}</p>
+          <h1 className="mt-3 font-display text-[1.6rem] leading-[1.35]">{title}</h1>
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{line}</p>
+        </div>
+        <img
+          src={ipFull}
+          alt="腕安 IP 形象「安安」：戴着柔软护腕的白兔"
+          width={1024}
+          height={1024}
+          className="ip-float -mr-3 -mb-2 h-32 w-auto object-contain drop-shadow-[0_14px_22px_rgba(120,130,170,0.2)]"
+        />
+      </div>
+      <div className="hairline mt-3 h-px" />
+    </section>
+  );
+}
