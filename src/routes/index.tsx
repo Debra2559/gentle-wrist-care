@@ -105,6 +105,11 @@ function Index() {
           现在做一次舒展
         </Link>
       </section>
+
+      <section className="card-soft p-5">
+        <IPWhisper text="安安记着你的节奏：今天已经比昨天多休息了两次，手腕会慢慢记得这份温柔。" />
+      </section>
+
     </MobileShell>
   );
 }

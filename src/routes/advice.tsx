@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock3 } from "lucide-react";
 
+import { IPWhisper } from "@/components/ip-anan";
 import { MobileShell } from "@/components/mobile-shell";
 import { suggestions } from "@/lib/wrist-data";
+
 
 export const Route = createFileRoute("/advice")({
   head: () => ({
@@ -48,10 +50,11 @@ function AdvicePage() {
 
       <section className="card-soft p-5">
         <h2 className="text-base">温柔提示</h2>
-        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-          这些建议来自护腕数据与常见康复方法，不能替代医生诊断。如果疼痛持续超过两周、出现明显肿胀或夜间痛醒，请及时就医。
-        </p>
+        <div className="mt-3">
+          <IPWhisper text="这些建议来自护腕数据与常见康复方法，不能替代医生诊断。如果疼痛持续超过两周、出现明显肿胀或夜间痛醒，请及时就医。" />
+        </div>
       </section>
+
     </MobileShell>
   );
 }
