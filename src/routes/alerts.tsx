@@ -71,7 +71,7 @@ function AlertsPage() {
           className="absolute left-[0.26rem] top-3 bottom-8 w-[2px] rounded-full"
           style={{
             background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--sky) 85%, transparent), color-mix(in oklab, var(--blush) 75%, transparent))",
+              "linear-gradient(180deg, color-mix(in oklab, var(--primary) 65%, transparent), color-mix(in oklab, var(--blush-foreground) 35%, transparent))",
           }}
         />
         <div className="space-y-7">
@@ -80,7 +80,7 @@ function AlertsPage() {
             return (
               <article key={a.id} className="relative">
                 <span
-                  className={`absolute -left-[1.42rem] top-1.5 h-2.5 w-2.5 rounded-full ring-4 ring-background ${s.dot}`}
+                  className={`absolute -left-[1.42rem] top-1.5 h-2.5 w-2.5 rounded-full ring-[3px] ring-background ${s.dot}`}
                 />
                 <div className="flex items-baseline gap-2">
                   <h2 className="font-display text-base leading-snug">{a.title}</h2>
