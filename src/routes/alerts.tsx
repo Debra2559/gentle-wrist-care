@@ -67,7 +67,8 @@ function AlertsPage() {
 
       {/* 时间轴：一条细线串起所有提醒，去掉方块 */}
       <section className="relative pl-6">
-        <span className="absolute left-[0.3rem] top-2 bottom-6 w-px bg-border" />
+        <span className="absolute left-[0.3rem] top-2 bottom-6 w-px"
+          style={{ background: "linear-gradient(180deg, transparent, color-mix(in oklab, var(--foreground) 16%, transparent) 12%, color-mix(in oklab, var(--foreground) 14%, transparent) 85%, transparent)" }} />
         <div className="space-y-7">
           {alerts.map((a) => {
             const s = severityStyles[a.severity];

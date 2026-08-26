@@ -59,11 +59,11 @@ function AdvicePage() {
           return (
             <article key={s.id} className="py-5 first:pt-1">
               <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-4">
-                <div className="pt-1 text-center">
+                <div className="w-11 pt-1 text-center">
                   <p className="font-display text-xl leading-none text-muted-foreground/70">
                     0{i + 1}
                   </p>
-                  <p className="mt-2 text-[0.6rem] tracking-[0.16em] text-blush-foreground">
+                  <p className="mt-2 text-[0.58rem] leading-tight tracking-[0.08em] text-blush-foreground">
                     {s.tag}
                   </p>
                 </div>
