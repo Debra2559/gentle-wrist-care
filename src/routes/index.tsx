@@ -41,7 +41,7 @@ function Ring({ value, max }: { value: number; max: number }) {
 }
 
 function Index() {
-  const latest = alerts[0];
+  const latest = alerts[0]!;
   const s = severityStyles[latest.severity];
 
   return (
