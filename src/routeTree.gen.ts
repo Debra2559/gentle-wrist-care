@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdviceRouteImport } from './routes/advice'
 import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as DeviceRouteImport } from './routes/device'
 import { Route as MonitorRouteImport } from './routes/monitor'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const AlertsRoute = AlertsRouteImport.update({
   path: '/alerts',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeviceRoute = DeviceRouteImport.update({
+  id: '/device',
+  path: '/device',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MonitorRoute = MonitorRouteImport.update({
   id: '/monitor',
   path: '/monitor',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/advice': typeof AdviceRoute
   '/alerts': typeof AlertsRoute
+  '/device': typeof DeviceRoute
   '/monitor': typeof MonitorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/advice': typeof AdviceRoute
   '/alerts': typeof AlertsRoute
+  '/device': typeof DeviceRoute
   '/monitor': typeof MonitorRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/advice': typeof AdviceRoute
   '/alerts': typeof AlertsRoute
+  '/device': typeof DeviceRoute
   '/monitor': typeof MonitorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/advice' | '/alerts' | '/monitor'
+  fullPaths: '/' | '/advice' | '/alerts' | '/device' | '/monitor'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/advice' | '/alerts' | '/monitor'
-  id: '__root__' | '/' | '/advice' | '/alerts' | '/monitor'
+  to: '/' | '/advice' | '/alerts' | '/device' | '/monitor'
+  id: '__root__' | '/' | '/advice' | '/alerts' | '/device' | '/monitor'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdviceRoute: typeof AdviceRoute
   AlertsRoute: typeof AlertsRoute
+  DeviceRoute: typeof DeviceRoute
   MonitorRoute: typeof MonitorRoute
 }
 
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlertsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/device': {
+      id: '/device'
+      path: '/device'
+      fullPath: '/device'
+      preLoaderRoute: typeof DeviceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/monitor': {
       id: '/monitor'
       path: '/monitor'
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdviceRoute: AdviceRoute,
   AlertsRoute: AlertsRoute,
+  DeviceRoute: DeviceRoute,
   MonitorRoute: MonitorRoute,
 }
 export const routeTree = rootRouteImport

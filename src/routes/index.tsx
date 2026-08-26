@@ -122,6 +122,23 @@ function Index() {
         </div>
       </section>
 
+      {/* 护腕能力入口 */}
+      <section className="-mx-5 overflow-x-auto px-5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex w-max items-center gap-2.5">
+          <span className="text-[0.62rem] tracking-[0.3em] text-muted-foreground">护腕正在</span>
+          {["实时监控", "智能预警", "渐进震动", "自动矫正"].map((t) => (
+            <Link
+              key={t}
+              to="/device"
+              className="orbit-chip flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[0.68rem]"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-calm" />
+              {t}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="px-1">
         <IPWhisper text="安安记着你的节奏：今天已经比昨天多休息了两次，手腕会慢慢记得这份温柔。" />
       </section>
