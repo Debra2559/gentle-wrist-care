@@ -146,3 +146,63 @@
   }
 }
 
+
+@utility bleed-top {
+  margin-top: calc(-2rem - env(safe-area-inset-top, 0px));
+}
+
+@utility ip-aura {
+  background:
+    radial-gradient(60% 46% at 50% 42%, color-mix(in oklab, var(--gold) 32%, transparent), transparent 70%),
+    radial-gradient(90% 70% at 22% 18%, color-mix(in oklab, var(--sky) 45%, transparent), transparent 72%),
+    radial-gradient(95% 75% at 82% 78%, color-mix(in oklab, var(--blush) 42%, transparent), transparent 74%);
+  filter: blur(2px);
+}
+
+@utility orbit-chip {
+  background: color-mix(in oklab, var(--card) 78%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+  box-shadow: 0 10px 26px -18px oklch(0.55 0.06 255 / 0.45);
+}
+
+@utility hairline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--foreground) 18%, transparent),
+    transparent
+  );
+}
+
+@utility breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@utility sparkle {
+  animation: sparkle 4.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0) scale(0.9);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-5px) scale(1.1);
+  }
+}
