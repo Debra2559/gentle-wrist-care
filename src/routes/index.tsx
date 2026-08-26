@@ -49,19 +49,21 @@ function Index() {
           <p className="font-display text-base">劳损指数 {todayStats.strainIndex}</p>
           <p className="text-[0.7rem] text-muted-foreground">温和区间 · 峰值 {peak.hour}:00</p>
         </div>
-        <div className="mt-3 flex h-14 items-end gap-1.5">
+        <div className="mt-3 flex items-end gap-1.5">
           {hourlyStrain.map((h) => (
             <div key={h.hour} className="flex flex-1 flex-col items-center gap-1.5">
-              <div
-                className="w-full rounded-full"
-                style={{
-                  height: `${Math.max(12, h.value)}%`,
-                  background:
-                    h.value > 60
-                      ? "color-mix(in oklab, var(--warn) 70%, transparent)"
-                      : "color-mix(in oklab, var(--sky) 70%, transparent)",
-                }}
-              />
+              <div className="flex h-14 w-full items-end">
+                <div
+                  className="w-full rounded-full"
+                  style={{
+                    height: `${Math.max(14, h.value)}%`,
+                    background:
+                      h.value > 60
+                        ? "color-mix(in oklab, var(--warn) 70%, transparent)"
+                        : "color-mix(in oklab, var(--sky) 70%, transparent)",
+                  }}
+                />
+              </div>
               <span className="text-[0.55rem] text-muted-foreground">{h.hour}</span>
             </div>
           ))}
