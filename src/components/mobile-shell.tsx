@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Activity, BellRing, Home, Sparkles, Watch } from "lucide-react";
+import { Activity, BellRing, FileText, Home, Sparkles, Watch } from "lucide-react";
 import type { ReactNode } from "react";
 
 const tabs = [
@@ -7,6 +7,7 @@ const tabs = [
   { to: "/monitor", label: "监测", icon: Activity },
   { to: "/alerts", label: "预警", icon: BellRing },
   { to: "/advice", label: "建议", icon: Sparkles },
+  { to: "/report", label: "报告", icon: FileText },
   { to: "/device", label: "护腕", icon: Watch },
 ] as const;
 
@@ -36,7 +37,7 @@ export function MobileShell({
               key={to}
               to={to}
               activeOptions={{ exact: to === "/" }}
-              className="flex flex-1 flex-col items-center gap-1 rounded-2xl px-2 py-2 text-[0.7rem] text-muted-foreground transition-colors"
+              className="flex flex-1 flex-col items-center gap-1 rounded-2xl px-2 py-2 text-[0.62rem] text-muted-foreground transition-colors"
               activeProps={{ className: "bg-secondary text-secondary-foreground" }}
             >
               <Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.6} />
