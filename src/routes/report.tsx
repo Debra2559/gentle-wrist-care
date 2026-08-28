@@ -161,7 +161,7 @@ function ReportBody({ report }: { report: SessionReport }) {
                 style={{ background: zoneColor[a.zone] ?? "var(--sky)" }}
               />
               <div className="min-w-0">
-                <p className="text-xs">{a.reason}</p>
+                <p className="text-xs">{reasonLabel[a.reason] ?? a.reason}</p>
                 <p className="mt-1 text-[0.65rem] text-muted-foreground">
                   {msToClock(a.timestamp_ms)} · {a.zone}
                   {a.recommend_mechanical ? " · 建议机械支撑" : ""}
@@ -239,6 +239,14 @@ function ReportBody({ report }: { report: SessionReport }) {
   );
 }
 
+const reasonLabel: Record<string, string> = {
+  sustained_high_posture: "持续高暴露姿势",
+  fe_excess_dose_accumulating: "屈伸超量剂量累积",
+  rud_excess_dose_accumulating: "桡尺偏超量剂量累积",
+  pressure_over_screening: "压力超过筛查参数",
+  discomfort_reported: "记录到不适反馈",
+};
+
 const channelLabel: Record<string, string> = {
   wrist_angles: "腕角",
   thumb_angle: "拇指角",
@@ -301,7 +309,7 @@ function AngleTrack({ rows }: { rows: TimelineRow[] }) {
           strokeDasharray="3 3"
         />
       </svg>
-      <div className="mt-2 flex h-1.5 gap-px overflow-hidden rounded-full">
+      <div className="mt-2 flex h-1.5 overflow-hidden rounded-full">
         {rows.map((r, i) => (
           <span
             key={i}
