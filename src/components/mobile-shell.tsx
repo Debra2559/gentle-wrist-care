@@ -1,12 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { Activity, BellRing, Home, Sparkles, Watch } from "lucide-react";
+import { Activity, BellRing, FileText, Home, Watch } from "lucide-react";
 import type { ReactNode } from "react";
 
 const tabs = [
   { to: "/", label: "今日", icon: Home },
   { to: "/monitor", label: "监测", icon: Activity },
   { to: "/alerts", label: "预警", icon: BellRing },
-  { to: "/advice", label: "建议", icon: Sparkles },
+  { to: "/report", label: "报告", icon: FileText },
   { to: "/device", label: "护腕", icon: Watch },
 ] as const;
 
