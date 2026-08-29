@@ -43,11 +43,23 @@ function ReportPage() {
   const fetchReport = useServerFn(getSessionReport);
   const [sessionId, setSessionId] = useState("S001");
   const [committed, setCommitted] = useState("S001");
+  const [polling, setPolling] = useState(true);
+  const [updatedAt, setUpdatedAt] = useState<Date | null>(null);
 
-  const { data, isFetching, error } = useQuery<SessionReport>({
-    queryKey: ["shewrist-session", committed],
-    queryFn: () => fetchReport({ data: { sessionId: committed } }),
-  });
+  const { data, isFetching, isLoading, error, refetch, dataUpdatedAt } =
+    useQuery<SessionReport>({
+      queryKey: ["shewrist-session", committed],
+      queryFn: () => fetchReport({ data: { sessionId: committed } }),
+      refetchInterval: polling ? POLL_MS : false,
+      refetchIntervalInBackground: false,
+      retry: 2,
+      retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 8000),
+      placeholderData: (prev) => prev,
+    });
+
+  useEffect(() => {
+    if (dataUpdatedAt) setUpdatedAt(new Date(dataUpdatedAt));
+  }, [dataUpdatedAt]);
 
   return (
     <MobileShell>
@@ -79,14 +91,148 @@ function ReportPage() {
         </button>
       </form>
 
-      {error ? (
-        <p className="text-xs text-destructive">读取失败，请稍后重试。</p>
+      {/* 实时刷新控制条 */}
+      <section className="flex items-center justify-between gap-3">
+        <button
+          type="button"
+          onClick={() => setPolling((p) => !p)}
+          aria-pressed={polling}
+          className="orbit-chip flex items-center gap-2 rounded-full px-3 py-1.5 text-[0.65rem]"
+        >
+          <span
+            className="h-1.5 w-1.5 rounded-full"
+            style={{
+              background: polling ? "var(--calm)" : "var(--muted-foreground)",
+              animation: polling ? "breathe 2.2s ease-in-out infinite" : undefined,
+            }}
+          />
+          {polling ? "实时刷新中 · 5s" : "已暂停刷新"}
+        </button>
+        <div className="flex items-center gap-2 text-[0.62rem] text-muted-foreground">
+          {updatedAt ? (
+            <span>
+              更新于{" "}
+              {updatedAt.toLocaleTimeString("zh-CN", { hour12: false })}
+            </span>
+          ) : null}
+          <button
+            type="button"
+            aria-label="立即刷新"
+            onClick={() => refetch()}
+            className="orbit-chip rounded-full p-1.5"
+          >
+            <RefreshCw
+              className={`h-3 w-3 ${isFetching ? "animate-spin" : ""}`}
+              style={{ animationDuration: "1.2s" }}
+            />
+          </button>
+        </div>
+      </section>
+
+      {isLoading ? (
+        <ReportSkeleton />
+      ) : error ? (
+        <ReportError onRetry={() => refetch()} />
       ) : !data ? (
-        <p className="text-xs text-muted-foreground">正在连接分析后端…</p>
+        <ReportEmpty onRetry={() => refetch()} />
       ) : (
         <ReportBody report={data} />
       )}
     </MobileShell>
+  );
+}
+
+function ReportSkeleton() {
+  return (
+    <section aria-busy="true" aria-label="正在加载" className="space-y-6">
+      <p className="text-xs text-muted-foreground">安安正在连接分析后端…</p>
+      <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="space-y-2">
+            <div className="h-5 w-16 animate-pulse rounded-full bg-muted/60" />
+            <div className="h-2.5 w-12 animate-pulse rounded-full bg-muted/40" />
+          </div>
+        ))}
+      </div>
+      <div className="h-24 w-full animate-pulse rounded-3xl bg-muted/40" />
+      <div className="space-y-3">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i} className="h-3 w-full animate-pulse rounded-full bg-muted/40" />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ReportError({ onRetry }: { onRetry: () => void }) {
+  return (
+    <section className="flex flex-col items-start gap-3">
+      <p className="font-display text-base">这次没有连上</p>
+      <p className="text-xs leading-relaxed text-muted-foreground">
+        网络轻轻抖了一下，数据没有传过来。休息一下再试试，安安在这儿等你。
+      </p>
+      <button
+        type="button"
+        onClick={onRetry}
+        className="rounded-full gradient-soft px-5 py-2.5 text-xs text-secondary-foreground"
+      >
+        重新连接
+      </button>
+    </section>
+  );
+}
+
+function ReportEmpty({ onRetry }: { onRetry: () => void }) {
+  return (
+    <section className="flex flex-col items-start gap-3">
+      <p className="font-display text-base">还没有这次会话的数据</p>
+      <p className="text-xs leading-relaxed text-muted-foreground">
+        这个会话 ID 暂时没有回传任何结果。确认护腕已完成上传，或换一个会话试试。
+      </p>
+      <button
+        type="button"
+        onClick={onRetry}
+        className="rounded-full gradient-soft px-5 py-2.5 text-xs text-secondary-foreground"
+      >
+        再查一次
+      </button>
+    </section>
+  );
+}
+
+function GateNotice({ reasons, warnings }: { reasons: string[]; warnings: string[] }) {
+  return (
+    <section
+      role="status"
+      className="rounded-3xl border px-4 py-4"
+      style={{
+        borderColor: "color-mix(in oklab, var(--warn) 45%, transparent)",
+        background: "color-mix(in oklab, var(--warn) 10%, transparent)",
+      }}
+    >
+      <p className="font-display text-sm">本次数据未通过质量门控</p>
+      <p className="mt-1.5 text-[0.7rem] leading-relaxed text-muted-foreground">
+        下面的指标仅供参考，不能作为暴露评估依据。常见原因是佩戴时间太短或同步误差偏大。
+      </p>
+      {reasons.length ? (
+        <ul className="mt-2.5 space-y-1.5">
+          {reasons.map((r) => (
+            <li key={r} className="flex gap-2 text-[0.7rem] leading-relaxed">
+              <span
+                className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
+                style={{ background: "var(--warn)" }}
+              />
+              {r}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {warnings.map((w) => (
+        <p key={w} className="mt-2 text-[0.65rem] text-muted-foreground">
+          {w}
+        </p>
+      ))}
+    </section>
   );
 }
 
