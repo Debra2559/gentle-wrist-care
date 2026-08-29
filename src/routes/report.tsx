@@ -240,6 +240,7 @@ function ReportBody({ report }: { report: SessionReport }) {
   const { result, timeline } = report;
   const m = result.metrics;
   const accepted = result.analysis_status === "accepted";
+  const noSamples = result.data_quality.sample_count === 0 && timeline.total === 0;
 
   return (
     <>
@@ -259,6 +260,14 @@ function ReportBody({ report }: { report: SessionReport }) {
       </section>
 
       {report.note ? <p className="text-[0.68rem] text-muted-foreground">{report.note}</p> : null}
+
+      {noSamples ? (
+        <ReportEmpty onRetry={() => window.location.reload()} />
+      ) : null}
+
+      {!accepted && !noSamples ? (
+        <GateNotice reasons={result.rejection_reasons} warnings={result.warnings} />
+      ) : null}
 
       {/* 核心指标 */}
       <section>
