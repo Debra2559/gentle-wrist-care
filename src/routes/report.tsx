@@ -136,7 +136,7 @@ function ReportPage() {
       ) : !data ? (
         <ReportEmpty onRetry={() => refetch()} />
       ) : (
-        <ReportBody report={data} />
+        <ReportBody report={data} onRetry={() => refetch()} />
       )}
     </MobileShell>
   );
@@ -236,7 +236,7 @@ function GateNotice({ reasons, warnings }: { reasons: string[]; warnings: string
   );
 }
 
-function ReportBody({ report }: { report: SessionReport }) {
+function ReportBody({ report, onRetry }: { report: SessionReport; onRetry: () => void }) {
   const { result, timeline } = report;
   const m = result.metrics;
   const accepted = result.analysis_status === "accepted";
@@ -261,9 +261,7 @@ function ReportBody({ report }: { report: SessionReport }) {
 
       {report.note ? <p className="text-[0.68rem] text-muted-foreground">{report.note}</p> : null}
 
-      {noSamples ? (
-        <ReportEmpty onRetry={() => window.location.reload()} />
-      ) : null}
+      {noSamples ? <ReportEmpty onRetry={onRetry} /> : null}
 
       {!accepted && !noSamples ? (
         <GateNotice reasons={result.rejection_reasons} warnings={result.warnings} />
