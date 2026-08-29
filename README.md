@@ -1,26 +1,39 @@
-# Gentle Care Wrist
+# 腕安 · 智能腕部姿势提醒护腕
 
-我们想为一个面向于有腱鞘炎（曾经有或者正在有）的女生提供一款智能护腕，想让你帮我做一下软件部分的开发（支持传数据到app），app支持展示相关的数据监测、预警、建议等等，你帮我做下这个网站，记得做移动端H5适配；风格我希望是治愈、简洁、温柔的如图
+腕安是一款面向长时间使用键盘和鼠标人群的智能腕部姿势提醒护腕。产品在手背与前臂各放置一块惯性测量单元（IMU），通过两者的相对姿态计算腕关节的屈伸角与尺桡偏角，结合连续使用时间与护腕内单点压力信号，在腕部偏离中立位持续过久时，先以马达轻震提醒，若未回正再通过软件弹窗给出具体调整建议，并记录提醒次数与提醒后的回正情况。
 
-This project was built with [Lovable](https://lovable.dev).
+## 产品为谁服务
+
+每天连续使用鼠标与键盘数小时的办公女性人群：程序员、设计师、财务、学生与内容创作者；尤其是已出现轻度腕部疲劳、希望改善工作习惯但无法减少工作量的女性。
+
+## 解决什么问题
+
+专注工作时，人对自己腕部姿势几乎没有感知；普通护腕只能提供被动支撑，不知道佩戴期间姿势是否改善；定时休息软件只知道「用了多久」，不知道手腕当时怎么放。腕安弥补的正是「姿势 + 时长 + 反馈 + 记录」这一段竞品缺失的部分。
+
+## 当前样机已经实现什么
+
+- 双 IMU 相对角度解算与 5 秒中立位校准
+- 单点压力原始值读取
+- 连续使用时长统计
+- 基于角度阈值与持续时间的提醒规则
+- 马达震动与网页弹窗联动
+- 提醒事件与回正情况记录
+- 数据 CSV 导出
+- 通过网站进行实时监测和分析，并提供对应的缓解方案（内置视频）
+
+当前为有线工程样机（USB 供电、串口通信），无线化方案已完成设计但尚未装机。计划未来加入热敷和气囊支撑功能。
+
+## 技术栈
+
+本项目前端使用 [Lovable](https://lovable.dev) + TanStack Start + React + Tailwind CSS 构建，移动端 H5 优先，风格治愈、简洁、温柔。
 
 **Live app**: https://gentle-wrist-care.lovable.app
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/eb0b59ab-496e-4411-8bae-ad853b9d5211).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## 本地开发
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
+git clone https://github.com/Debra2559/gentle-wrist-care.git
+cd gentle-wrist-care
 npm i
 npm run dev
 ```
@@ -43,3 +56,11 @@ PYTHONPATH=src python3 scripts/run_api.py --host 127.0.0.1 --port 8000
 - `SHEWRIST_API_TOKEN`：可选 Bearer 令牌
 
 未配置时「报告」页自动回退到结构一致的演示数据。接口规范见 `algorithm/docs/backend_api.md`。
+
+## 硬件数据对接
+
+硬件样机可通过 `POST /api/public/ingest` 批量上报采样数据，写入后端数据库后，报告页每 5 秒自动轮询刷新。详细字段与联调示例见 `docs/硬件数据对接说明.md`。
+
+## 继续开发
+
+在 [Lovable 编辑器](https://lovable.dev/projects/eb0b59ab-496e-4411-8bae-ad853b9d5211) 中继续迭代，所有修改会自动同步回本仓库。
