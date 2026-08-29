@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      wrist_samples: {
+        Row: {
+          battery_pct: number | null
+          device_id: string
+          id: number
+          pressure_kpa: number | null
+          quality: number | null
+          raw: Json | null
+          received_at: string
+          session_id: string
+          temperature_c: number | null
+          theta_fe: number | null
+          theta_rud: number | null
+          timestamp_ms: number
+        }
+        Insert: {
+          battery_pct?: number | null
+          device_id: string
+          id?: never
+          pressure_kpa?: number | null
+          quality?: number | null
+          raw?: Json | null
+          received_at?: string
+          session_id: string
+          temperature_c?: number | null
+          theta_fe?: number | null
+          theta_rud?: number | null
+          timestamp_ms: number
+        }
+        Update: {
+          battery_pct?: number | null
+          device_id?: string
+          id?: never
+          pressure_kpa?: number | null
+          quality?: number | null
+          raw?: Json | null
+          received_at?: string
+          session_id?: string
+          temperature_c?: number | null
+          theta_fe?: number | null
+          theta_rud?: number | null
+          timestamp_ms?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
