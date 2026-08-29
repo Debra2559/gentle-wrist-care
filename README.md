@@ -73,7 +73,3 @@ PYTHONPATH=src python3 scripts/run_api.py --host 127.0.0.1 --port 8000
 ## 硬件数据对接
 
 硬件样机可通过 `POST /api/public/ingest` 批量上报采样数据，写入后端数据库后，报告页每 5 秒自动轮询刷新。详细字段与联调示例见 `docs/硬件数据对接说明.md`。
-
-## 继续开发
-
-在 [Lovable 编辑器](https://lovable.dev/projects/eb0b59ab-496e-4411-8bae-ad853b9d5211) 中继续迭代，所有修改会自动同步回本仓库。
