@@ -8,15 +8,15 @@ import { alerts, severityStyles, hourlyStrain, todayStats } from "@/lib/wrist-da
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "腕安 · 今日手腕状态" },
+      { title: "腕安 · 智能腕部姿势提醒" },
       {
         name: "description",
-        content: "查看今日护腕佩戴时长、重复动作次数、劳损指数与温柔的康复提醒。",
+        content: "为长时间使用键盘与鼠标的女性办公人群设计的智能护腕，实时监测腕部姿势、连续使用时长与压力，温柔提醒并记录回正情况。",
       },
-      { property: "og:title", content: "腕安 · 今日手腕状态" },
+      { property: "og:title", content: "腕安 · 智能腕部姿势提醒" },
       {
         property: "og:description",
-        content: "智能护腕实时同步数据，用温柔的方式陪你照顾手腕。",
+        content: "姿势 + 时长 + 反馈 + 记录，用温柔的方式陪你改善工作习惯。",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
