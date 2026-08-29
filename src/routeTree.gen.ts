@@ -15,6 +15,7 @@ import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as DeviceRouteImport } from './routes/device'
 import { Route as MonitorRouteImport } from './routes/monitor'
 import { Route as ReportRouteImport } from './routes/report'
+import { Route as ApiPublicIngestRouteImport } from './routes/api/public/ingest'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const ReportRoute = ReportRouteImport.update({
   path: '/report',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicIngestRoute = ApiPublicIngestRouteImport.update({
+  id: '/api/public/ingest',
+  path: '/api/public/ingest',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/device': typeof DeviceRoute
   '/monitor': typeof MonitorRoute
   '/report': typeof ReportRoute
+  '/api/public/ingest': typeof ApiPublicIngestRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/device': typeof DeviceRoute
   '/monitor': typeof MonitorRoute
   '/report': typeof ReportRoute
+  '/api/public/ingest': typeof ApiPublicIngestRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,12 +79,27 @@ export interface FileRoutesById {
   '/device': typeof DeviceRoute
   '/monitor': typeof MonitorRoute
   '/report': typeof ReportRoute
+  '/api/public/ingest': typeof ApiPublicIngestRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/advice' | '/alerts' | '/device' | '/monitor' | '/report'
+  fullPaths:
+    | '/'
+    | '/advice'
+    | '/alerts'
+    | '/device'
+    | '/monitor'
+    | '/report'
+    | '/api/public/ingest'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/advice' | '/alerts' | '/device' | '/monitor' | '/report'
+  to:
+    | '/'
+    | '/advice'
+    | '/alerts'
+    | '/device'
+    | '/monitor'
+    | '/report'
+    | '/api/public/ingest'
   id:
     | '__root__'
     | '/'
@@ -85,6 +108,7 @@ export interface FileRouteTypes {
     | '/device'
     | '/monitor'
     | '/report'
+    | '/api/public/ingest'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -94,6 +118,7 @@ export interface RootRouteChildren {
   DeviceRoute: typeof DeviceRoute
   MonitorRoute: typeof MonitorRoute
   ReportRoute: typeof ReportRoute
+  ApiPublicIngestRoute: typeof ApiPublicIngestRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -140,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/ingest': {
+      id: '/api/public/ingest'
+      path: '/api/public/ingest'
+      fullPath: '/api/public/ingest'
+      preLoaderRoute: typeof ApiPublicIngestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -150,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   DeviceRoute: DeviceRoute,
   MonitorRoute: MonitorRoute,
   ReportRoute: ReportRoute,
+  ApiPublicIngestRoute: ApiPublicIngestRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
