@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.0",
+  "job_id": "job_18e05ceed23f48d4b5a5",
+  "session_id": "DEMO01-d10",
+  "status": "succeeded",
+  "analysis_status": "accepted",
+  "rejection_reasons": [],
+  "evidence_type": "simulation",
+  "algorithm_release": "offline-v0.8",
+  "sensor_installation": null,
+  "channels": {
+    "wrist_angles": {
+      "available": true,
+      "source": "provided"
+    },
+    "thumb_angle": {
+      "available": false
+    },
+    "pressure": {
+      "available": false,
+      "source": null
+    },
+    "fsr_raw": {
+      "available": false,
+      "source": null
+    },
+    "tension": {
+      "available": false,
+      "source": null
+    },
+    "discomfort": {
+      "available": false,
+      "source": null
+    },
+    "discomfort_nrs": {
+      "available": true,
+      "source": "participant_report_0_10"
+    },
+    "safety_symptom": {
+      "available": false,
+      "source": null
+    },
+    "user_continues": {
+      "available": true
+    }
+  },
+  "data_quality": {
+    "sample_count": 901,
+    "valid_sample_pct": 100.0,
+    "valid_sample_pct_min": 80.0,
+    "valid_sample_gate_passed": true,
+    "sample_rate_hz": 10.0,
+    "median_sync_error_ms": null,
+    "p95_sync_error_ms": null,
+    "max_sync_error_ms": null,
+    "sync_limit_ms": null,
+    "sync_gate_passed": null
+  },
+  "calibration": {
+    "status": "provided_by_input",
+    "calibration_id": "DEMO-CAL"
+  },
+  "trial_condition": null,
+  "fsr_proxy": {
+    "available": false,
+    "source": null,
+    "unit": null,
+    "calibrated_to_pressure": false,
+    "mean": null,
+    "p95": null,
+    "max": null
+  },
+  "metrics": {
+    "task_duration_s": 90.1,
+    "valid_sample_pct": 100.0,
+    "high_posture_time_pct": 32.96337402885689,
+    "fe_excess_dose_deg_s": 31.406427000000015,
+    "rud_excess_dose_deg_s": 0.06810930000000037,
+    "total_excess_dose_deg_s": 31.474536300000015,
+    "longest_high_posture_s": 0.4000000000000057,
+    "fe_cycles_per_min": 29.96670366259712,
+    "rud_cycles_per_min": 20.643729189789127,
+    "max_abs_fe_deg": 16.708379,
+    "max_abs_rud_deg": 10.025027,
+    "alert_count": 0,
+    "would_alert_count": 0,
+    "mechanical_recommendation_count": 0,
+    "safety_stop_count": null,
+    "max_pressure_kpa": null,
+    "pressure_over_screening_s": null,
+    "mean_external_assist_torque_nm": null,
+    "max_external_assist_torque_nm": null
+  },
+  "alerts": [],
+  "ml_shadow": {
+    "operating_mode": "shadow",
+    "timing_semantics": "full_session_finalize",
+    "window_count": 178,
+    "accepted_window_count": 18,
+    "rejected_window_count": 160,
+    "rejection_reasons": {
+      "accepted": 18,
+      "low_confidence": 160
+    },
+    "token_count": 0,
+    "tokens_url": "/api/v1/sessions/DEMO01-d10/tokens",
+    "safety_effect": "none"
+  },
+  "control_policy": {
+    "angle_alert_authority": "deterministic_exposure_engine",
+    "pressure_stop_authority": "deterministic_calibrated_pressure_or_safety_symptom",
+    "mechanical_action": "manual_only",
+    "ml_control_authority": "none",
+    "llm_control_authority": "none"
+  },
+  "explanation": {
+    "provider": "local_template",
+    "model": "shewrist-template-v1",
+    "api_called": false,
+    "summary": "本次离线回放有效样本率为 100.0%，确定性链记录 0 个提醒事件。",
+    "observations": [
+      "影子动作模型接受 18 个窗口、拒识 160 个窗口。",
+      "角度与压力提醒仅由确定性状态机生成，动作模型结果只作上下文描述。"
+    ],
+    "limitations": [
+      "结果来自当前证据类型，不能解释为疾病风险、疗效或人体安全结论。",
+      "未接入目标硬件时，时间同步、安装滑移、压力和释放能力仍未获得硬件证据。"
+    ],
+    "next_steps": [
+      "复核低质量区间、拒识窗口和确定性提醒时间点。",
+      "接入生产解释服务时只替换 provider、model 和 endpoint 配置，不修改算法主链。"
+    ],
+    "safety_effect": "none"
+  },
+  "artifacts": [
+    {
+      "name": "joint_state.csv",
+      "media_type": "text/csv",
+      "sha256": "2b6fc273a6b73c7117f0a7fb0b24bae427e00887b34a7313ffbdd41c304d4138",
+      "url": "/api/v1/sessions/DEMO01-d10/artifacts/joint_state.csv"
+    },
+    {
+      "name": "timeline.csv",
+      "media_type": "text/csv",
+      "sha256": "e3c7cce9d1362fac890198669b25ed3ec2631cd881b3c1a54a9ce9adbec7b317",
+      "url": "/api/v1/sessions/DEMO01-d10/artifacts/timeline.csv"
+    },
+    {
+      "name": "analysis.json",
+      "media_type": "application/json",
+      "sha256": "504a60d61842d2af3641eb777825f5f382164aa66d05f8a41192ae3a0b2ba392",
+      "url": "/api/v1/sessions/DEMO01-d10/artifacts/analysis.json"
+    },
+    {
+      "name": "tokens.json",
+      "media_type": "application/json",
+      "sha256": "84c19c5b9c0f43fc42a51cd321c4911496f77ba33e1a3f9c2d71a4f6a97b7921",
+      "url": "/api/v1/sessions/DEMO01-d10/artifacts/tokens.json"
+    },
+    {
+      "name": "personal_baseline.json",
+      "media_type": "application/json",
+      "sha256": "d369b574afc6fd0fd686443a4be4b7792b2227f00e71bccfa4f0a63bb6a45eb1",
+      "url": "/api/v1/sessions/DEMO01-d10/artifacts/personal_baseline.json"
+    },
+    {
+      "name": "manifest.json",
+      "media_type": "application/json",
+      "sha256": "58567afe6dcadc8ce5321e824e3fdafd996fb802bede94cb36b7cb24cc28b9ad",
+      "url": "/api/v1/sessions/DEMO01-d10/artifacts/manifest.json"
+    }
+  ],
+  "warnings": [],
+  "evidence_limits": [
+    "Public/replayed data provide an engineering baseline, not target-hardware validation.",
+    "No output estimates disease risk, tissue strain, treatment benefit, or clinical safety.",
+    "ML and explanation providers have no alarm or mechanical-control authority."
+  ],
+  "personal_baseline": {
+    "participant_id": "DEMO01",
+    "status": "provisional",
+    "role": "auto",
+    "update_applied": true,
+    "session_count": 10,
+    "observed_minutes": 15.016666666666667,
+    "relative_exposure": {
+      "abs_fe_deg_p90": {
+        "today": 15.890612,
+        "baseline": 24.027368531298343,
+        "ratio": 0.6613546539356024,
+        "pct_vs_baseline": -33.864534606439754
+      },
+      "abs_rud_deg_p90": {
+        "today": 9.901602,
+        "baseline": 14.971698288137908,
+        "ratio": 0.6613546312140854,
+        "pct_vs_baseline": -33.86453687859146
+      },
+      "dose_rate_deg_s_per_min": {
+        "today": 20.959735604883477,
+        "baseline": 363.3027445688691,
+        "ratio": 0.057692202765372354,
+        "pct_vs_baseline": -94.23077972346276
+      },
+      "P_high_pct": {
+        "today": 32.96337402885689,
+        "baseline": 77.48550895005549,
+        "ratio": 0.4254134027835315,
+        "pct_vs_baseline": -57.45865972164685
+      }
+    },
+    "goal_line": {
+      "target_reduction_pct": 20.0,
+      "targets": {
+        "abs_fe_deg_p90": 19.221894825038675,
+        "abs_rud_deg_p90": 11.977358630510327,
+        "dose_rate_deg_s_per_min": 290.6421956550953,
+        "P_high_pct": 61.988407160044396
+      }
+    },
+    "symptom_association": {
+      "status": "evaluable",
+      "reasons": [],
+      "n_pairs": 9,
+      "lag_days": 1,
+      "pearson_r": 0.979355413956472,
+      "spearman_r": 0.9833333333333333,
+      "pearson_r_ci95": [
+        0.9174253740506585,
+        0.99675682593313
+      ],
+      "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+    },
+    "exposure_tolerance": {
+      "status": "evaluable",
+      "reasons": [],
+      "primary_metric": "dose_rate_deg_s_per_min",
+      "n_pairs": 9,
+      "lag_days": 1,
+      "tolerance_exposure": 383.3849237513874,
+      "elevated_median_exposure": 760.9698852053274,
+      "non_elevated_day_count": 5,
+      "elevated_day_count": 4,
+      "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+    },
+    "suggestions": [
+      {
+        "code": "exposure_pain_association_observed",
+        "message": "Your higher-exposure days tend to be followed by higher self-reported pain. If pain persists or worsens, consider a clinical follow-up. This tool does not diagnose.",
+        "control_effect": "none",
+        "requires_human_action": true
+      }
+    ],
+    "control_effect": "none",
+    "artifact_url": "/api/v1/sessions/DEMO01-d10/artifacts/personal_baseline.json"
+  }
+}

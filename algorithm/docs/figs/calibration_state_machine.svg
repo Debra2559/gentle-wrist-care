@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" font-family="PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6b7c"/>
+    </marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c0736e"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4f8f6a"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#ffffff"/>
+
+  <!-- ===== initial dot ===== -->
+  <circle cx="120" cy="150" r="14" fill="#3d4a56"/>
+  <path d="M 134 150 L 236 150" stroke="#5b6b7c" stroke-width="2.4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- ===== S1 中立位采集 ===== -->
+  <rect x="248" y="88" width="330" height="124" rx="22" fill="#eaf0f6" stroke="#8fa6bb" stroke-width="2.2"/>
+  <text x="413" y="140" text-anchor="middle" font-size="30" font-weight="600" fill="#22303c">中立位采集</text>
+  <text x="413" y="178" text-anchor="middle" font-size="21" fill="#5b6b7c">约 5 s 静止</text>
+
+  <!-- ===== S2 中立位不合格 ===== -->
+  <rect x="248" y="316" width="330" height="112" rx="22" fill="#fbe9e8" stroke="#d9a3a0" stroke-width="2.2"/>
+  <text x="413" y="382" text-anchor="middle" font-size="29" font-weight="600" fill="#8f3b36">中立位不合格</text>
+
+  <!-- S1 -> S2 -->
+  <path d="M 330 212 C 330 258, 330 276, 330 316" stroke="#c0736e" stroke-width="2.4" fill="none" marker-end="url(#ahr)"/>
+  <text x="316" y="268" text-anchor="end" font-size="20" fill="#a25550">[晃动/样本不足]</text>
+  <!-- S2 -> S1 -->
+  <path d="M 500 316 C 500 276, 500 258, 500 212" stroke="#5b6b7c" stroke-width="2.4" fill="none" marker-end="url(#ah)"/>
+  <text x="516" y="268" font-size="20" fill="#5b6b7c">[重新录制]</text>
+
+  <!-- S1 -> S3 -->
+  <path d="M 578 150 C 660 150, 700 150, 782 150" stroke="#5b6b7c" stroke-width="2.4" fill="none" marker-end="url(#ah)"/>
+  <text x="680" y="128" text-anchor="middle" font-size="20" fill="#3d4a56">[静止样本 ≥30</text>
+  <text x="680" y="154" text-anchor="middle" font-size="20" fill="#3d4a56">且占比 ≥70%]</text>
+
+  <!-- ===== S3 功能动作采集 ===== -->
+  <rect x="782" y="80" width="372" height="140" rx="22" fill="#eaf0f6" stroke="#8fa6bb" stroke-width="2.2"/>
+  <text x="968" y="128" text-anchor="middle" font-size="30" font-weight="600" fill="#22303c">功能动作采集</text>
+  <text x="968" y="163" text-anchor="middle" font-size="20" fill="#5b6b7c">掌屈 / 背伸 / 尺偏，桡偏可选</text>
+  <text x="968" y="194" text-anchor="middle" font-size="20" fill="#5b6b7c">每段 ≤15 s</text>
+
+  <!-- ===== S4 功能校准不合格 ===== -->
+  <rect x="782" y="316" width="372" height="112" rx="22" fill="#fbe9e8" stroke="#d9a3a0" stroke-width="2.2"/>
+  <text x="968" y="382" text-anchor="middle" font-size="29" font-weight="600" fill="#8f3b36">功能校准不合格</text>
+
+  <!-- S3 -> S4 -->
+  <path d="M 872 220 C 872 262, 872 280, 872 316" stroke="#c0736e" stroke-width="2.4" fill="none" marker-end="url(#ahr)"/>
+  <text x="856" y="258" text-anchor="end" font-size="20" fill="#a25550">[缺段 /</text>
+  <text x="856" y="284" text-anchor="end" font-size="20" fill="#a25550">区间超 15 s]</text>
+  <!-- S4 -> S3 -->
+  <path d="M 1064 316 C 1064 280, 1064 262, 1064 220" stroke="#5b6b7c" stroke-width="2.4" fill="none" marker-end="url(#ah)"/>
+  <text x="1080" y="272" font-size="20" fill="#5b6b7c">[重新录制]</text>
+
+  <!-- S3 -> S5 -->
+  <path d="M 1154 150 C 1240 150, 1288 150, 1374 150" stroke="#5b6b7c" stroke-width="2.4" fill="none" marker-end="url(#ah)"/>
+  <text x="1264" y="128" text-anchor="middle" font-size="20" fill="#3d4a56">[四段齐全</text>
+  <text x="1264" y="154" text-anchor="middle" font-size="20" fill="#3d4a56">且区间有效]</text>
+
+  <!-- ===== S5 生成校准档案 ===== -->
+  <rect x="1374" y="72" width="418" height="156" rx="22" fill="#eaf0f6" stroke="#8fa6bb" stroke-width="2.2"/>
+  <text x="1583" y="122" text-anchor="middle" font-size="30" font-weight="600" fill="#22303c">生成校准档案</text>
+  <text x="1583" y="158" text-anchor="middle" font-size="20" fill="#5b6b7c">置零 + 陀螺零偏 +</text>
+  <text x="1583" y="188" text-anchor="middle" font-size="20" fill="#5b6b7c">主轴 SVD 解剖轴</text>
+  <text x="1583" y="216" text-anchor="middle" font-size="20" fill="#5b6b7c">→ calibration_id</text>
+
+  <!-- S5 -> S6 : down then left -->
+  <path d="M 1583 228 C 1583 400, 1583 470, 1583 556" stroke="#5b6b7c" stroke-width="2.4" fill="none" marker-end="url(#ah)"/>
+
+  <!-- ===== S6 自然放松工作基线采集 ===== -->
+  <rect x="1300" y="556" width="466" height="150" rx="22" fill="#eaf0f6" stroke="#8fa6bb" stroke-width="2.2"/>
+  <text x="1533" y="608" text-anchor="middle" font-size="29" font-weight="600" fill="#22303c">自然放松工作基线采集</text>
+  <text x="1533" y="645" text-anchor="middle" font-size="20" fill="#5b6b7c">自然工作片段</text>
+  <text x="1533" y="676" text-anchor="middle" font-size="20" fill="#5b6b7c">单次 ≤5 min</text>
+
+  <!-- S6 self loop (skip) -->
+  <path d="M 1766 600 C 1856 580, 1876 660, 1766 662" stroke="#5b6b7c" stroke-width="2.2" fill="none" marker-end="url(#ah)"/>
+  <text x="1800" y="754" text-anchor="middle" font-size="19" fill="#a25550">[单次 &gt;5 min</text>
+  <text x="1800" y="778" text-anchor="middle" font-size="19" fill="#a25550">或质量不足]</text>
+  <text x="1800" y="806" text-anchor="middle" font-size="19" fill="#5b6b7c">该次跳过，</text>
+  <text x="1800" y="830" text-anchor="middle" font-size="19" fill="#5b6b7c">不计入</text>
+
+  <!-- S6 -> S7 -->
+  <path d="M 1300 631 C 1180 631, 1120 631, 1010 631" stroke="#5b6b7c" stroke-width="2.4" fill="none" marker-end="url(#ah)"/>
+  <text x="1155" y="606" text-anchor="middle" font-size="20" fill="#3d4a56">[单次时长 ≥1 min</text>
+  <text x="1155" y="632" text-anchor="middle" font-size="20" fill="#3d4a56">且有效样本 ≥60%]</text>
+
+  <!-- ===== S7 暂定基线 ===== -->
+  <rect x="606" y="556" width="404" height="150" rx="22" fill="#eaf0f6" stroke="#8fa6bb" stroke-width="2.2"/>
+  <text x="808" y="616" text-anchor="middle" font-size="30" font-weight="600" fill="#22303c">暂定基线</text>
+  <text x="808" y="656" text-anchor="middle" font-size="21" fill="#5b6b7c">个人 p50 / p90</text>
+
+  <!-- S7 self loop -->
+  <path d="M 736 706 C 700 800, 900 800, 872 706" stroke="#5b6b7c" stroke-width="2.2" fill="none" marker-end="url(#ah)"/>
+  <text x="808" y="836" text-anchor="middle" font-size="20" fill="#3d4a56">[新数据 EWMA α=0.3 更新]</text>
+  <text x="808" y="866" text-anchor="middle" font-size="20" fill="#5b6b7c">越测越修正</text>
+
+  <!-- S7 -> S8 -->
+  <path d="M 606 631 C 490 631, 440 631, 330 631" stroke="#4f8f6a" stroke-width="2.6" fill="none" marker-end="url(#ahg)"/>
+  <text x="468" y="606" text-anchor="middle" font-size="20" fill="#3d7a58">[累计有效</text>
+  <text x="468" y="632" text-anchor="middle" font-size="20" fill="#3d7a58">≥30 min]</text>
+
+  <!-- ===== S8 正式基线 ===== -->
+  <rect x="94" y="568" width="236" height="126" rx="22" fill="#e6f4ec" stroke="#8dbfa4" stroke-width="2.4"/>
+  <rect x="104" y="578" width="216" height="106" rx="16" fill="none" stroke="#8dbfa4" stroke-width="1.4"/>
+  <text x="212" y="643" text-anchor="middle" font-size="30" font-weight="600" fill="#26593f">正式基线</text>
+
+  <!-- S8 self loop -->
+  <path d="M 148 694 C 118 792, 300 792, 272 694" stroke="#5b6b7c" stroke-width="2.2" fill="none" marker-end="url(#ah)"/>
+  <text x="212" y="826" text-anchor="middle" font-size="20" fill="#3d4a56">[新数据 EWMA α=0.3]</text>
+  <text x="212" y="856" text-anchor="middle" font-size="20" fill="#5b6b7c">持续修正</text>
+
+  <!-- ===== legend ===== -->
+  <rect x="94" y="900" width="1698" height="1" fill="#dde4ea"/>
+  <circle cx="112" cy="946" r="9" fill="#3d4a56"/>
+  <text x="132" y="954" font-size="19" fill="#5b6b7c">初始状态</text>
+  <rect x="246" y="930" width="34" height="30" rx="8" fill="#eaf0f6" stroke="#8fa6bb" stroke-width="1.8"/>
+  <text x="292" y="954" font-size="19" fill="#5b6b7c">采集 / 处理状态</text>
+  <rect x="470" y="930" width="34" height="30" rx="8" fill="#fbe9e8" stroke="#d9a3a0" stroke-width="1.8"/>
+  <text x="516" y="954" font-size="19" fill="#5b6b7c">失败态（可重录返回）</text>
+  <rect x="778" y="930" width="34" height="30" rx="8" fill="#e6f4ec" stroke="#8dbfa4" stroke-width="1.8"/>
+  <text x="824" y="954" font-size="19" fill="#5b6b7c">正式完成态</text>
+  <text x="1010" y="954" font-size="19" fill="#8a97a3">箭头标签中括号内为转移守卫条件（guard）</text>
+
+  <!-- ===== caption ===== -->
+  <text x="960" y="1024" text-anchor="middle" font-size="26" fill="#22303c">图　校准阶段状态图：中立位校准 → 功能校准 → 个人基线（暂定/正式）</text>
+</svg>

@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "canonical_activity_labels": [
+    "background",
+    "extension",
+    "flexion",
+    "radial_deviation",
+    "ulnar_deviation"
+  ],
+  "fusion_policy": {
+    "status": "disabled_until_target_hardware_validation",
+    "validated_weights": null,
+    "required_evidence": "A labeled SheWrist target-hardware validation set with participant, session, calibration, task, and remount identity.",
+    "authority": "shadow_only"
+  },
+  "datasets": [
+    {
+      "dataset_id": "upper_body_movements",
+      "display_name": "Upper-body movements",
+      "root": "data/raw/UpperBodyMovements",
+      "adapter": "upper_body_movements",
+      "expert_id": "wrist_motion_activity",
+      "doi": "10.5281/zenodo.4029127",
+      "license": "CC BY 4.0",
+      "capabilities": [
+        "activity_training",
+        "participant_holdout_evaluation"
+      ],
+      "required_modalities": [
+        "forearm_accelerometer",
+        "forearm_gyroscope",
+        "forearm_magnetometer",
+        "hand_accelerometer",
+        "hand_gyroscope",
+        "hand_magnetometer"
+      ],
+      "source_label_map": {
+        "unannotated": "background",
+        "Extension": "extension",
+        "Flexion": "flexion",
+        "Radial Deviation": "radial_deviation",
+        "Ulnar Deviation": "ulnar_deviation"
+      },
+      "mapping_status": "implemented",
+      "allowed_uses": [
+        "five_class_wrist_motion_training",
+        "participant_holdout_evaluation"
+      ],
+      "evidence_limits": [
+        "movement_interval_labels_only",
+        "no_independent_wrist_angle_truth",
+        "healthy_participants_only"
+      ]
+    },
+    {
+      "dataset_id": "comparison_imu_optotrak",
+      "display_name": "Comparison IMU vs Optotrak",
+      "root": "data/raw/Biomechanics-joint-angle-analysis",
+      "adapter": "opto_reference_sample",
+      "expert_id": "wrist_angle_reference",
+      "doi": "10.5281/zenodo.10935873",
+      "license": "CC BY 4.0 data; MIT toolbox",
+      "capabilities": [
+        "angle_reference_validation"
+      ],
+      "required_modalities": [
+        "hand_and_lower_arm_imu_angles",
+        "optical_wrist_angle"
+      ],
+      "source_label_map": {
+        "wristFlexion": "theta_fe_deg",
+        "wristDeviation": "theta_rud_deg"
+      },
+      "mapping_status": "implemented_for_source_toolbox_sample",
+      "artifacts": {
+        "aligned_pickle": "Python/4.OPTO_IMU_Joint_Angles_aligned.pkl"
+      },
+      "reference_tasks": [
+        {
+          "name": "wrist_flexion_extension",
+          "task_index": 5,
+          "axis_index": 0
+        },
+        {
+          "name": "wrist_radial_ulnar_deviation",
+          "task_index": 6,
+          "axis_index": 2
+        }
+      ],
+      "allowed_uses": [
+        "source_toolbox_angle_baseline",
+        "angle_metric_pipeline_validation"
+      ],
+      "evidence_limits": [
+        "one_public_participant_sample_only",
+        "not_shewrist_raw_sensor_output",
+        "full_16_participant_dataset_not_installed"
+      ]
+    },
+    {
+      "dataset_id": "ultra_mocap",
+      "display_name": "ULTRA-MoCap",
+      "root": "data/raw/ULTRA-MoCap",
+      "adapter": "reserved",
+      "expert_id": "upper_limb_angle_context",
+      "doi": "10.6084/m9.figshare.28751156.v1",
+      "license": "CC BY 4.0",
+      "capabilities": [
+        "angle_reference_validation",
+        "coupled_motion_context"
+      ],
+      "required_modalities": [
+        "imu",
+        "vicon_or_opensim_angles"
+      ],
+      "source_label_map": {},
+      "mapping_status": "pending_schema_verification",
+      "allowed_uses": [
+        "future_angle_expert",
+        "future_coordinate_mapping_validation"
+      ],
+      "evidence_limits": [
+        "not_installed",
+        "tasks_focus_on_shoulder_elbow_coordination"
+      ]
+    },
+    {
+      "dataset_id": "openpack",
+      "display_name": "OpenPack",
+      "root": "data/raw/OpenPack",
+      "adapter": "reserved",
+      "expert_id": "industrial_work_context",
+      "doi": null,
+      "license": "verify_per_downloaded_release",
+      "capabilities": [
+        "industrial_context_training"
+      ],
+      "required_modalities": [
+        "wearable_inertial_or_activity_stream",
+        "work_operation_labels"
+      ],
+      "source_label_map": {},
+      "mapping_status": "pending_dataset_native_label_audit",
+      "allowed_uses": [
+        "future_industrial_context_expert"
+      ],
+      "evidence_limits": [
+        "not_installed",
+        "labels_do_not_equal_five_wrist_motion_classes"
+      ]
+    },
+    {
+      "dataset_id": "lara",
+      "display_name": "LARa",
+      "root": "data/raw/LARa",
+      "adapter": "reserved",
+      "expert_id": "industrial_work_context",
+      "doi": null,
+      "license": "verify_per_downloaded_release",
+      "capabilities": [
+        "industrial_context_training"
+      ],
+      "required_modalities": [
+        "wearable_inertial_stream",
+        "logistics_activity_labels"
+      ],
+      "source_label_map": {},
+      "mapping_status": "pending_dataset_native_label_audit",
+      "allowed_uses": [
+        "future_industrial_context_expert"
+      ],
+      "evidence_limits": [
+        "not_installed",
+        "labels_do_not_equal_five_wrist_motion_classes"
+      ]
+    },
+    {
+      "dataset_id": "myoki",
+      "display_name": "MyoKi",
+      "root": "data/raw/MyoKi",
+      "adapter": "reserved",
+      "expert_id": "adl_context",
+      "doi": "10.6084/m9.figshare.28696778",
+      "license": "CC BY 4.0",
+      "capabilities": [
+        "adl_context_training",
+        "joint_angle_context"
+      ],
+      "required_modalities": [
+        "forearm_imu_or_joint_angles",
+        "adl_labels"
+      ],
+      "source_label_map": {},
+      "mapping_status": "pending_dataset_native_label_audit",
+      "allowed_uses": [
+        "future_adl_context_expert"
+      ],
+      "evidence_limits": [
+        "not_installed",
+        "no_rigid_hand_dorsum_imu_for_shewrist_geometry"
+      ]
+    },
+    {
+      "dataset_id": "shewrist_hardware_pilot",
+      "display_name": "SheWrist unlabeled wired hardware pilot",
+      "root": "datasets",
+      "adapter": "hardware_pilot",
+      "expert_id": "target_domain_quality",
+      "doi": null,
+      "license": "private_local_data",
+      "capabilities": [
+        "domain_audit",
+        "self_supervised_candidate"
+      ],
+      "required_modalities": [
+        "forearm_imu",
+        "hand_imu",
+        "raw_fsr_adc"
+      ],
+      "source_label_map": {},
+      "mapping_status": "unavailable_unlabeled",
+      "allowed_uses": [
+        "data_link_validation",
+        "parser_compatibility",
+        "fault_testing"
+      ],
+      "evidence_limits": [
+        "no_participant_identity",
+        "no_activity_labels",
+        "no_condition_labels",
+        "no_calibration_identity",
+        "not_supervised_training_data"
+      ]
+    }
+  ]
+}

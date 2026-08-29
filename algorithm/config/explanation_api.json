@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "provider": "template",
+  "model": "shewrist-template-v1",
+  "language": "zh-CN",
+  "endpoint_env": "SHEWRIST_LLM_ENDPOINT",
+  "api_key_env": "SHEWRIST_LLM_API_KEY",
+  "model_env": "SHEWRIST_LLM_MODEL",
+  "timeout_s": 30.0,
+  "compatible_protocol": "openai_chat_completions",
+  "replacement_note": "生产接入时将 provider 改为 openai_compatible，并通过环境变量替换 endpoint、API key 和 model；算法输入输出及安全权限无需改变。",
+  "safety": {
+    "control_authority": "none",
+    "allowed_output": "non_clinical_engineering_summary",
+    "raw_sensor_upload": false,
+    "diagnosis_allowed": false,
+    "alarm_or_mechanical_command_allowed": false
+  }
+}

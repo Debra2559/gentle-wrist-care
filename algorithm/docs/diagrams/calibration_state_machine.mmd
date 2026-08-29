@@ -1,0 +1,37 @@
+%%{init: {"theme":"base","fontFamily":"PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif","themeVariables":{"background":"#ffffff","primaryColor":"#e8eef4","primaryBorderColor":"#9fb3c8","primaryTextColor":"#1f2933","lineColor":"#7b8794","fontSize":"19px","edgeLabelBackground":"#ffffff"},"state":{"nodeSpacing":60,"rankSpacing":85,"useMaxWidth":false},"flowchart":{"htmlLabels":true,"curve":"basis"}} }%%
+stateDiagram-v2
+    direction TB
+
+    state "中立位采集<br/>约 5 s 静止" as Neutral
+    state "中立位不合格" as NeutralBad
+    state "功能动作采集<br/>掌屈 / 背伸 / 尺偏（桡偏可选）<br/>每段 ≤ 15 s" as Functional
+    state "功能校准不合格" as FunctionalBad
+    state "生成校准档案<br/>置零 + 陀螺零偏 + 主轴 SVD 解剖轴<br/>→ calibration_id" as Profile
+    state "自然放松工作基线采集<br/>自然工作片段，单次 ≤ 5 min" as BaselineCapture
+    state "暂定基线<br/>个人 p50 / p90" as Provisional
+    state "正式基线" as Official
+
+    [*] --> Neutral
+
+    Neutral --> NeutralBad : [晃动 / 样本不足]
+    NeutralBad --> Neutral : [重新录制]
+    Neutral --> Functional : [静止样本 ≥ 30<br/>且占比 ≥ 70%]
+
+    Functional --> FunctionalBad : [缺段 / 区间超 15 s]
+    FunctionalBad --> Functional : [重新录制]
+    Functional --> Profile : [四段齐全<br/>且区间有效]
+
+    Profile --> BaselineCapture
+
+    BaselineCapture --> BaselineCapture : [单次 > 5 min 或质量不足]<br/>该次跳过，不计入
+    BaselineCapture --> Provisional : [单次时长 ≥ 1 min<br/>且有效样本 ≥ 60%]
+
+    Provisional --> Provisional : [新数据 EWMA α = 0.3 更新]<br/>越测越修正
+    Provisional --> Official : [累计有效 ≥ 30 min]
+
+    Official --> Official : [新数据 EWMA α = 0.3]<br/>持续修正
+
+    classDef bad fill:#fbe3e3,stroke:#dc9a9a,stroke-width:1.6px,color:#1f2933;
+    classDef ok fill:#e2f4e4,stroke:#86bf92,stroke-width:1.6px,color:#1f2933;
+    class NeutralBad,FunctionalBad bad
+    class Official ok

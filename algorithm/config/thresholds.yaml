@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "sign_convention": {
+    "theta_FE": "positive = wrist extension, negative = wrist flexion",
+    "theta_RUD": "positive = ulnar deviation, negative = radial deviation",
+    "angles": "degrees"
+  },
+  "angle_degrees": {
+    "flexion_extension": {
+      "yellow_abs": 15.0,
+      "red_abs": 30.0
+    },
+    "radial_ulnar": {
+      "yellow_abs": 10.0,
+      "red_abs": 20.0
+    }
+  },
+  "compound_posture": {
+    "extension_min": 15.0,
+    "ulnar_min": 10.0
+  },
+  "duration_seconds": {
+    "continuous_alert": 10.0,
+    "rolling_window": 300.0,
+    "rolling_high_exposure": 60.0,
+    "cooldown": 300.0
+  },
+  "cycles_per_minute": {
+    "cycle_amplitude_deg": 8.0
+  },
+  "pressure_kpa": {
+    "yellow": 3.0,
+    "red": 4.4
+  },
+  "quality": {
+    "gap_factor": 1.5,
+    "gravity_mps2": 9.80665,
+    "acceleration_norm_tolerance_mps2": 3.0,
+    "magnetic_field_min_uT": 15.0,
+    "magnetic_field_max_uT": 80.0,
+    "accel_saturation_mps2": 100.0,
+    "gyro_saturation_rad_s": 20.0,
+    "silence_min_samples": 10,
+    "neutral_accel_tolerance_mps2": 1.5,
+    "neutral_gyro_threshold_rad_s": 0.15
+  },
+  "fusion": {
+    "default_algorithm": "madgwick",
+    "madgwick_beta": 0.08,
+    "mahony_kp": 0.5,
+    "mahony_ki": 0.0,
+    "use_magnetometer": false,
+    "magnetometer_requires_calibration": true
+  },
+  "acceptance": {
+    "static_mae_deg_max": 5.0,
+    "dynamic_mae_deg_max": 8.0,
+    "node_sync_ms_max": 20.0,
+    "session_valid_sample_pct_min": 80.0,
+    "neutral_stationary_sample_pct_min": 70.0,
+    "neutral_stationary_samples_min": 30,
+    "condition_c_exposure_reduction_pct_min": 20.0,
+    "task_performance_drop_pct_max": 5.0,
+    "comfort_score_min": 5.0,
+    "effective_alert_acceptance_pct_min": 70.0
+  },
+  "personal_baseline": {
+    "percentiles": [50, 90],
+    "tracked_metrics": [
+      "abs_fe_deg_p90",
+      "abs_rud_deg_p90",
+      "dose_rate_deg_s_per_min",
+      "P_high_pct"
+    ],
+    "enrollment": {
+      "min_valid_minutes": 1.0,
+      "max_session_minutes": 5.0,
+      "min_valid_sample_pct": 60.0
+    },
+    "adaptive": {
+      "ewma_alpha": 0.3,
+      "established_minutes_min": 30.0
+    },
+    "symptom": {
+      "primary_metric": "dose_rate_deg_s_per_min",
+      "lag_days": 1,
+      "min_paired_days": 7,
+      "min_group_days": 3,
+      "tolerance_percentile": 75,
+      "bootstrap_iterations": 2000,
+      "seed": 20260829
+    },
+    "goal": {
+      "default_target_reduction_pct": 20.0
+    },
+    "evidence": {
+      "control_effect": "none",
+      "note": "Advisory per-person exposure tracking and single-subject symptom association. Not disease risk, diagnosis, prescription, or any alarm/mechanical control."
+    }
+  },
+  "provenance": {
+    "angle_15_deg": "RULA ergonomic screening boundary; not a disease threshold",
+    "angle_30_deg": "first-version engineering red zone",
+    "rud_10_20_deg": "first-version engineering strata informed by RULA deviation scoring",
+    "pressure_4_4_kpa": "prototype screening reference from Tam et al. 2024; not a universal safety threshold",
+    "trigger_and_cooldown": "first-version engineering parameters",
+    "session_valid_sample_pct_min": "first-version engineering data-quality acceptance parameter",
+    "neutral_stationarity": "first-version engineering calibration-quality parameters",
+    "comfort_score_min": "first-version engineering acceptance line of 5 on the field protocol's 1-7 comfort scale; not a clinical threshold",
+    "personal_baseline": "first-version engineering parameters for advisory per-person exposure tracking; percentiles, EWMA rate, and n-of-1 minimum sample counts are engineering choices, not validated clinical thresholds"
+  }
+}

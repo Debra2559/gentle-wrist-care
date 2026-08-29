@@ -1,0 +1,4 @@
+device_ms,host_unix_ms,condition,support_level,fsr_raw_adc,discomfort_nrs,safety_symptom_flag,user_continues
+1000000,1787932800000,A,0,1018,1,0,1
+1000020,1787932800020,A,0,1021,1,0,1
+1000040,1787932800040,A,0,1020,1,0,1

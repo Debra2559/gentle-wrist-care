@@ -1,0 +1,1975 @@
+{
+  "components": {
+    "schemas": {
+      "Alert": {
+        "properties": {
+          "reason": {
+            "title": "Reason",
+            "type": "string"
+          },
+          "recommend_mechanical": {
+            "title": "Recommend Mechanical",
+            "type": "boolean"
+          },
+          "safety_stop": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Safety Stop"
+          },
+          "timestamp_ms": {
+            "title": "Timestamp Ms",
+            "type": "number"
+          },
+          "zone": {
+            "title": "Zone",
+            "type": "string"
+          }
+        },
+        "required": [
+          "timestamp_ms",
+          "zone",
+          "reason",
+          "recommend_mechanical"
+        ],
+        "title": "Alert",
+        "type": "object"
+      },
+      "Artifact": {
+        "properties": {
+          "media_type": {
+            "title": "Media Type",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "sha256": {
+            "title": "Sha256",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "media_type",
+          "sha256",
+          "url"
+        ],
+        "title": "Artifact",
+        "type": "object"
+      },
+      "Body_createAnalysisJob": {
+        "properties": {
+          "calibration_file": {
+            "anyOf": [
+              {
+                "format": "binary",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional UTF-8 dual-IMU CAL/validation CSV for raw_dual_imu input.",
+            "title": "Calibration File"
+          },
+          "data_file": {
+            "description": "UTF-8 CSV containing joint-state or dual-IMU task samples.",
+            "format": "binary",
+            "title": "Data File",
+            "type": "string"
+          },
+          "mechanical_file": {
+            "anyOf": [
+              {
+                "format": "binary",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Optional UTF-8 raw FSR, calibrated pressure, or operator-state CSV.",
+            "title": "Mechanical File"
+          },
+          "metadata": {
+            "description": "JSON metadata matching SheWrist Backend API v1.0.",
+            "title": "Metadata",
+            "type": "string"
+          }
+        },
+        "required": [
+          "metadata",
+          "data_file"
+        ],
+        "title": "Body_createAnalysisJob",
+        "type": "object"
+      },
+      "ChannelDescriptor": {
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "boolean"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          }
+        },
+        "required": [
+          "available"
+        ],
+        "title": "ChannelDescriptor",
+        "type": "object"
+      },
+      "Channels": {
+        "properties": {
+          "discomfort": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "discomfort_nrs": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "fsr_raw": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "pressure": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "safety_symptom": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "tension": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "thumb_angle": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "user_continues": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          },
+          "wrist_angles": {
+            "$ref": "#/components/schemas/ChannelDescriptor"
+          }
+        },
+        "required": [
+          "wrist_angles",
+          "thumb_angle",
+          "pressure",
+          "fsr_raw",
+          "tension",
+          "discomfort",
+          "discomfort_nrs",
+          "safety_symptom",
+          "user_continues"
+        ],
+        "title": "Channels",
+        "type": "object"
+      },
+      "ControlPolicy": {
+        "properties": {
+          "angle_alert_authority": {
+            "title": "Angle Alert Authority",
+            "type": "string"
+          },
+          "llm_control_authority": {
+            "title": "Llm Control Authority",
+            "type": "string"
+          },
+          "mechanical_action": {
+            "title": "Mechanical Action",
+            "type": "string"
+          },
+          "ml_control_authority": {
+            "title": "Ml Control Authority",
+            "type": "string"
+          },
+          "pressure_stop_authority": {
+            "title": "Pressure Stop Authority",
+            "type": "string"
+          }
+        },
+        "required": [
+          "angle_alert_authority",
+          "pressure_stop_authority",
+          "mechanical_action",
+          "ml_control_authority",
+          "llm_control_authority"
+        ],
+        "title": "ControlPolicy",
+        "type": "object"
+      },
+      "DataQuality": {
+        "properties": {
+          "max_sync_error_ms": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Sync Error Ms"
+          },
+          "median_sync_error_ms": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Sync Error Ms"
+          },
+          "p95_sync_error_ms": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "P95 Sync Error Ms"
+          },
+          "sample_count": {
+            "title": "Sample Count",
+            "type": "integer"
+          },
+          "sample_rate_hz": {
+            "title": "Sample Rate Hz",
+            "type": "number"
+          },
+          "sync_gate_passed": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sync Gate Passed"
+          },
+          "sync_limit_ms": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sync Limit Ms"
+          },
+          "valid_sample_gate_passed": {
+            "title": "Valid Sample Gate Passed",
+            "type": "boolean"
+          },
+          "valid_sample_pct": {
+            "title": "Valid Sample Pct",
+            "type": "number"
+          },
+          "valid_sample_pct_min": {
+            "title": "Valid Sample Pct Min",
+            "type": "number"
+          }
+        },
+        "required": [
+          "sample_count",
+          "valid_sample_pct",
+          "valid_sample_pct_min",
+          "valid_sample_gate_passed",
+          "sample_rate_hz"
+        ],
+        "title": "DataQuality",
+        "type": "object"
+      },
+      "ErrorDetail": {
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string"
+          },
+          "details": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Details"
+          },
+          "field": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Field"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          },
+          "retryable": {
+            "default": false,
+            "title": "Retryable",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "ErrorDetail",
+        "type": "object"
+      },
+      "ErrorEnvelope": {
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          },
+          "schema_version": {
+            "default": "1.0",
+            "title": "Schema Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "error"
+        ],
+        "title": "ErrorEnvelope",
+        "type": "object"
+      },
+      "ExplanationSummary": {
+        "properties": {
+          "api_called": {
+            "title": "Api Called",
+            "type": "boolean"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Limitations",
+            "type": "array"
+          },
+          "model": {
+            "title": "Model",
+            "type": "string"
+          },
+          "next_steps": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Next Steps",
+            "type": "array"
+          },
+          "observations": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Observations",
+            "type": "array"
+          },
+          "provider": {
+            "title": "Provider",
+            "type": "string"
+          },
+          "safety_effect": {
+            "title": "Safety Effect",
+            "type": "string"
+          },
+          "summary": {
+            "title": "Summary",
+            "type": "string"
+          }
+        },
+        "required": [
+          "provider",
+          "model",
+          "api_called",
+          "summary",
+          "observations",
+          "limitations",
+          "next_steps",
+          "safety_effect"
+        ],
+        "title": "ExplanationSummary",
+        "type": "object"
+      },
+      "FsrProxySummary": {
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "boolean"
+          },
+          "calibrated_to_pressure": {
+            "default": false,
+            "title": "Calibrated To Pressure",
+            "type": "boolean"
+          },
+          "max": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max"
+          },
+          "mean": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mean"
+          },
+          "p95": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "P95"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          }
+        },
+        "required": [
+          "available"
+        ],
+        "title": "FsrProxySummary",
+        "type": "object"
+      },
+      "HealthResponse": {
+        "properties": {
+          "algorithm_release": {
+            "title": "Algorithm Release",
+            "type": "string"
+          },
+          "mode": {
+            "title": "Mode",
+            "type": "string"
+          },
+          "schema_version": {
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "schema_version",
+          "algorithm_release",
+          "mode"
+        ],
+        "title": "HealthResponse",
+        "type": "object"
+      },
+      "InertialTokenResponse": {
+        "properties": {
+          "confidence": {
+            "title": "Confidence",
+            "type": "number"
+          },
+          "duration_ms": {
+            "title": "Duration Ms",
+            "type": "integer"
+          },
+          "end_ms": {
+            "title": "End Ms",
+            "type": "integer"
+          },
+          "event_type": {
+            "title": "Event Type",
+            "type": "string"
+          },
+          "evidence_type": {
+            "title": "Evidence Type",
+            "type": "string"
+          },
+          "mean_quality": {
+            "title": "Mean Quality",
+            "type": "number"
+          },
+          "model_name": {
+            "title": "Model Name",
+            "type": "string"
+          },
+          "model_version": {
+            "title": "Model Version",
+            "type": "string"
+          },
+          "operating_mode": {
+            "title": "Operating Mode",
+            "type": "string"
+          },
+          "peak_abs_fe_deg": {
+            "title": "Peak Abs Fe Deg",
+            "type": "number"
+          },
+          "peak_abs_rud_deg": {
+            "title": "Peak Abs Rud Deg",
+            "type": "number"
+          },
+          "safety_effect": {
+            "title": "Safety Effect",
+            "type": "string"
+          },
+          "schema_version": {
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "session_id": {
+            "title": "Session Id",
+            "type": "string"
+          },
+          "source": {
+            "title": "Source",
+            "type": "string"
+          },
+          "start_ms": {
+            "title": "Start Ms",
+            "type": "integer"
+          },
+          "threshold_version": {
+            "title": "Threshold Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "session_id",
+          "event_type",
+          "source",
+          "evidence_type",
+          "operating_mode",
+          "start_ms",
+          "end_ms",
+          "duration_ms",
+          "confidence",
+          "mean_quality",
+          "peak_abs_fe_deg",
+          "peak_abs_rud_deg",
+          "model_name",
+          "model_version",
+          "threshold_version",
+          "safety_effect"
+        ],
+        "title": "InertialTokenResponse",
+        "type": "object"
+      },
+      "JobResponse": {
+        "properties": {
+          "analysis_status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Analysis Status"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string"
+          },
+          "error": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ErrorDetail"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "idempotent_replay": {
+            "default": false,
+            "title": "Idempotent Replay",
+            "type": "boolean"
+          },
+          "job_id": {
+            "title": "Job Id",
+            "type": "string"
+          },
+          "progress_pct": {
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Progress Pct",
+            "type": "integer"
+          },
+          "result_url": {
+            "title": "Result Url",
+            "type": "string"
+          },
+          "schema_version": {
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "session_id": {
+            "title": "Session Id",
+            "type": "string"
+          },
+          "stage": {
+            "title": "Stage",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "status_url": {
+            "title": "Status Url",
+            "type": "string"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "job_id",
+          "session_id",
+          "status",
+          "stage",
+          "progress_pct",
+          "created_at",
+          "updated_at",
+          "status_url",
+          "result_url"
+        ],
+        "title": "JobResponse",
+        "type": "object"
+      },
+      "Metrics": {
+        "properties": {
+          "alert_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Alert Count"
+          },
+          "fe_cycles_per_min": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fe Cycles Per Min"
+          },
+          "fe_excess_dose_deg_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fe Excess Dose Deg S"
+          },
+          "high_posture_time_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "High Posture Time Pct"
+          },
+          "longest_high_posture_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Longest High Posture S"
+          },
+          "max_abs_fe_deg": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Abs Fe Deg"
+          },
+          "max_abs_rud_deg": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Abs Rud Deg"
+          },
+          "max_external_assist_torque_nm": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max External Assist Torque Nm"
+          },
+          "max_pressure_kpa": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Pressure Kpa"
+          },
+          "mean_external_assist_torque_nm": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mean External Assist Torque Nm"
+          },
+          "mechanical_recommendation_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mechanical Recommendation Count"
+          },
+          "pressure_over_screening_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pressure Over Screening S"
+          },
+          "rud_cycles_per_min": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rud Cycles Per Min"
+          },
+          "rud_excess_dose_deg_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rud Excess Dose Deg S"
+          },
+          "safety_stop_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Safety Stop Count"
+          },
+          "task_duration_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Task Duration S"
+          },
+          "total_excess_dose_deg_s": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total Excess Dose Deg S"
+          },
+          "valid_sample_pct": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Valid Sample Pct"
+          },
+          "would_alert_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Would Alert Count"
+          }
+        },
+        "title": "Metrics",
+        "type": "object"
+      },
+      "MlShadowSummary": {
+        "properties": {
+          "accepted_window_count": {
+            "title": "Accepted Window Count",
+            "type": "integer"
+          },
+          "operating_mode": {
+            "title": "Operating Mode",
+            "type": "string"
+          },
+          "rejected_window_count": {
+            "title": "Rejected Window Count",
+            "type": "integer"
+          },
+          "rejection_reasons": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "title": "Rejection Reasons",
+            "type": "object"
+          },
+          "safety_effect": {
+            "title": "Safety Effect",
+            "type": "string"
+          },
+          "timing_semantics": {
+            "title": "Timing Semantics",
+            "type": "string"
+          },
+          "token_count": {
+            "title": "Token Count",
+            "type": "integer"
+          },
+          "tokens_url": {
+            "title": "Tokens Url",
+            "type": "string"
+          },
+          "window_count": {
+            "title": "Window Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "operating_mode",
+          "timing_semantics",
+          "window_count",
+          "accepted_window_count",
+          "rejected_window_count",
+          "rejection_reasons",
+          "token_count",
+          "tokens_url",
+          "safety_effect"
+        ],
+        "title": "MlShadowSummary",
+        "type": "object"
+      },
+      "SensorInstallation": {
+        "properties": {
+          "contract_validated": {
+            "title": "Contract Validated",
+            "type": "boolean"
+          },
+          "joint_crossing_pair": {
+            "title": "Joint Crossing Pair",
+            "type": "boolean"
+          },
+          "nodes": {
+            "items": {
+              "$ref": "#/components/schemas/SensorNode"
+            },
+            "title": "Nodes",
+            "type": "array"
+          },
+          "physical_verification": {
+            "title": "Physical Verification",
+            "type": "string"
+          },
+          "side": {
+            "title": "Side",
+            "type": "string"
+          }
+        },
+        "required": [
+          "contract_validated",
+          "joint_crossing_pair",
+          "side",
+          "nodes",
+          "physical_verification"
+        ],
+        "title": "SensorInstallation",
+        "type": "object"
+      },
+      "SensorNode": {
+        "properties": {
+          "coordinate_frame": {
+            "title": "Coordinate Frame",
+            "type": "string"
+          },
+          "placement": {
+            "title": "Placement",
+            "type": "string"
+          },
+          "sensor_id": {
+            "title": "Sensor Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "sensor_id",
+          "placement",
+          "coordinate_frame"
+        ],
+        "title": "SensorNode",
+        "type": "object"
+      },
+      "SessionResult": {
+        "properties": {
+          "alerts": {
+            "items": {
+              "$ref": "#/components/schemas/Alert"
+            },
+            "title": "Alerts",
+            "type": "array"
+          },
+          "algorithm_release": {
+            "title": "Algorithm Release",
+            "type": "string"
+          },
+          "analysis_status": {
+            "title": "Analysis Status",
+            "type": "string"
+          },
+          "artifacts": {
+            "items": {
+              "$ref": "#/components/schemas/Artifact"
+            },
+            "title": "Artifacts",
+            "type": "array"
+          },
+          "calibration": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Calibration"
+          },
+          "channels": {
+            "$ref": "#/components/schemas/Channels"
+          },
+          "control_policy": {
+            "$ref": "#/components/schemas/ControlPolicy"
+          },
+          "data_quality": {
+            "$ref": "#/components/schemas/DataQuality"
+          },
+          "evidence_limits": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Evidence Limits",
+            "type": "array"
+          },
+          "evidence_type": {
+            "title": "Evidence Type",
+            "type": "string"
+          },
+          "explanation": {
+            "$ref": "#/components/schemas/ExplanationSummary"
+          },
+          "fsr_proxy": {
+            "$ref": "#/components/schemas/FsrProxySummary"
+          },
+          "job_id": {
+            "title": "Job Id",
+            "type": "string"
+          },
+          "metrics": {
+            "$ref": "#/components/schemas/Metrics"
+          },
+          "ml_shadow": {
+            "$ref": "#/components/schemas/MlShadowSummary"
+          },
+          "rejection_reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Rejection Reasons",
+            "type": "array"
+          },
+          "schema_version": {
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "sensor_installation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SensorInstallation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "session_id": {
+            "title": "Session Id",
+            "type": "string"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string"
+          },
+          "trial_condition": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TrialCondition"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Warnings",
+            "type": "array"
+          }
+        },
+        "required": [
+          "schema_version",
+          "job_id",
+          "session_id",
+          "status",
+          "analysis_status",
+          "rejection_reasons",
+          "evidence_type",
+          "algorithm_release",
+          "channels",
+          "data_quality",
+          "fsr_proxy",
+          "metrics",
+          "alerts",
+          "ml_shadow",
+          "control_policy",
+          "explanation",
+          "artifacts",
+          "warnings",
+          "evidence_limits"
+        ],
+        "title": "SessionResult",
+        "type": "object"
+      },
+      "TimelineResponse": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/TimelineRow"
+            },
+            "title": "Items",
+            "type": "array"
+          },
+          "limit": {
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "title": "Offset",
+            "type": "integer"
+          },
+          "schema_version": {
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "session_id": {
+            "title": "Session Id",
+            "type": "string"
+          },
+          "total": {
+            "title": "Total",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "schema_version",
+          "session_id",
+          "offset",
+          "limit",
+          "total",
+          "items"
+        ],
+        "title": "TimelineResponse",
+        "type": "object"
+      },
+      "TimelineRow": {
+        "properties": {
+          "activity_shadow": {
+            "title": "Activity Shadow",
+            "type": "string"
+          },
+          "alert": {
+            "title": "Alert",
+            "type": "boolean"
+          },
+          "alert_reason": {
+            "title": "Alert Reason",
+            "type": "string"
+          },
+          "angle_zone": {
+            "title": "Angle Zone",
+            "type": "string"
+          },
+          "discomfort": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discomfort"
+          },
+          "discomfort_nrs": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Discomfort Nrs"
+          },
+          "fsr_raw": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fsr Raw"
+          },
+          "pressure_zone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pressure Zone"
+          },
+          "quality": {
+            "title": "Quality",
+            "type": "number"
+          },
+          "safety_stop": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Safety Stop"
+          },
+          "safety_symptom": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Safety Symptom"
+          },
+          "theta_FE": {
+            "title": "Theta Fe",
+            "type": "number"
+          },
+          "theta_RUD": {
+            "title": "Theta Rud",
+            "type": "number"
+          },
+          "timestamp_ms": {
+            "title": "Timestamp Ms",
+            "type": "number"
+          },
+          "user_continues": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Continues"
+          },
+          "would_alert": {
+            "title": "Would Alert",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "timestamp_ms",
+          "theta_FE",
+          "theta_RUD",
+          "quality",
+          "angle_zone",
+          "activity_shadow",
+          "alert",
+          "would_alert",
+          "alert_reason"
+        ],
+        "title": "TimelineRow",
+        "type": "object"
+      },
+      "TokensResponse": {
+        "properties": {
+          "operating_mode": {
+            "title": "Operating Mode",
+            "type": "string"
+          },
+          "schema_version": {
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "tokens": {
+            "items": {
+              "$ref": "#/components/schemas/InertialTokenResponse"
+            },
+            "title": "Tokens",
+            "type": "array"
+          }
+        },
+        "required": [
+          "schema_version",
+          "operating_mode",
+          "tokens"
+        ],
+        "title": "TokensResponse",
+        "type": "object"
+      },
+      "TrialCondition": {
+        "properties": {
+          "condition": {
+            "title": "Condition",
+            "type": "string"
+          },
+          "protocol_order": {
+            "default": "A_then_B_then_C",
+            "title": "Protocol Order",
+            "type": "string"
+          },
+          "reminder_enabled": {
+            "title": "Reminder Enabled",
+            "type": "boolean"
+          },
+          "support_level": {
+            "title": "Support Level",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "condition",
+          "support_level",
+          "reminder_enabled"
+        ],
+        "title": "TrialCondition",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Asynchronous offline wrist-exposure analysis. The deterministic exposure engine is the only alert path; the CNN-HMM and optional explanation provider have no control authority.",
+    "title": "SheWrist Backend API",
+    "version": "1.0.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/api/v1/analysis-jobs": {
+      "post": {
+        "operationId": "createAnalysisJob",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Idempotency-Key",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Idempotency-Key"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_createAnalysisJob"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Invalid request or unsupported input"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Job, session, or artifact not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Idempotency, session, or result-state conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Upload too large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Validation or analysis failure"
+          }
+        },
+        "summary": "Create an asynchronous offline-analysis job",
+        "tags": [
+          "analysis jobs"
+        ]
+      }
+    },
+    "/api/v1/analysis-jobs/{job_id}": {
+      "get": {
+        "operationId": "getAnalysisJob",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Invalid request or unsupported input"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Job, session, or artifact not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Idempotency, session, or result-state conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Upload too large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Validation or analysis failure"
+          }
+        },
+        "summary": "Get asynchronous job status",
+        "tags": [
+          "analysis jobs"
+        ]
+      }
+    },
+    "/api/v1/sessions/{session_id}": {
+      "get": {
+        "operationId": "getSessionAnalysis",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "session_id",
+            "required": true,
+            "schema": {
+              "title": "Session Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Invalid request or unsupported input"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Job, session, or artifact not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Idempotency, session, or result-state conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Upload too large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Validation or analysis failure"
+          }
+        },
+        "summary": "Get the normalized analysis result",
+        "tags": [
+          "sessions"
+        ]
+      }
+    },
+    "/api/v1/sessions/{session_id}/artifacts/{name}": {
+      "get": {
+        "operationId": "downloadSessionArtifact",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "session_id",
+            "required": true,
+            "schema": {
+              "title": "Session Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Invalid request or unsupported input"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Job, session, or artifact not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Idempotency, session, or result-state conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Upload too large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Validation or analysis failure"
+          }
+        },
+        "summary": "Download an allow-listed auditable artifact",
+        "tags": [
+          "sessions"
+        ]
+      }
+    },
+    "/api/v1/sessions/{session_id}/timeline": {
+      "get": {
+        "operationId": "getSessionTimeline",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "session_id",
+            "required": true,
+            "schema": {
+              "title": "Session Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "default": 0,
+              "minimum": 0,
+              "title": "Offset",
+              "type": "integer"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 1000,
+              "maximum": 5000,
+              "minimum": 1,
+              "title": "Limit",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TimelineResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Invalid request or unsupported input"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Job, session, or artifact not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Idempotency, session, or result-state conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Upload too large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Validation or analysis failure"
+          }
+        },
+        "summary": "Get a paginated chart-ready timeline",
+        "tags": [
+          "sessions"
+        ]
+      }
+    },
+    "/api/v1/sessions/{session_id}/tokens": {
+      "get": {
+        "operationId": "getSessionTokens",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "session_id",
+            "required": true,
+            "schema": {
+              "title": "Session Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokensResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Invalid request or unsupported input"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Job, session, or artifact not found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Idempotency, session, or result-state conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Upload too large"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Validation or analysis failure"
+          }
+        },
+        "summary": "Get non-controlling CNN-HMM inertial tokens",
+        "tags": [
+          "sessions"
+        ]
+      }
+    },
+    "/healthz": {
+      "get": {
+        "operationId": "healthCheck",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health Check",
+        "tags": [
+          "system"
+        ]
+      }
+    }
+  }
+}

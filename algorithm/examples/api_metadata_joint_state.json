@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "session_id": "replace-with-unique-session-id",
+  "input_type": "joint_state",
+  "evidence_type": "replay",
+  "timestamp_basis": "session_relative_ms",
+  "options": {
+    "enable_ml_shadow": true,
+    "chunk_size": 128,
+    "threshold_version": "engineering_v1",
+    "explanation_provider": "local_template",
+    "enable_external_api": false,
+    "generate_charts": true,
+    "language": "zh-CN"
+  }
+}

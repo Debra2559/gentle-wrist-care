@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>图 校准阶段状态图</title>
+<script src="./mermaid.min.js"></script>
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; }
+  body {
+    width: 1600px;
+    height: 900px;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 30px 48px 24px 48px;
+  }
+  #canvas {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+  }
+  #canvas svg { max-width: 100%; max-height: 100%; height: auto; }
+  .legend {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 38px;
+    font-size: 17px;
+    color: #52606d;
+    padding-top: 10px;
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 9px; }
+  .swatch { width: 24px; height: 14px; border-radius: 4px; display: inline-block; }
+  .sw-normal { background: #e8eef4; border: 1.4px solid #9fb3c8; }
+  .sw-bad    { background: #fbe3e3; border: 1.4px solid #dc9a9a; }
+  .sw-ok     { background: #e2f4e4; border: 1.4px solid #86bf92; }
+  .figcaption {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 23px;
+    color: #1f2933;
+    letter-spacing: 0.3px;
+    padding-top: 16px;
+  }
+  #canvas .node rect { rx: 14px; ry: 14px; }
+  #canvas .edgePath path { stroke-width: 1.5px; }
+  #canvas .edgeLabel rect { fill: #ffffff !important; opacity: 0.97 !important; }
+  #canvas .nodeLabel, #canvas .edgeLabel, #canvas .label {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", sans-serif !important;
+  }
+</style>
+</head>
+<body>
+  <div id="canvas"><div id="mount"></div></div>
+  <div class="legend">
+    <span><i class="swatch sw-normal"></i>过程状态</span>
+    <span><i class="swatch sw-bad"></i>失败态（需重新录制）</span>
+    <span><i class="swatch sw-ok"></i>正式完成态</span>
+  </div>
+  <div class="figcaption">图　校准阶段状态图：中立位校准 → 功能校准 → 个人基线（暂定 / 正式）</div>
+
+<script>
+const CODE = `stateDiagram-v2
+    direction LR
+
+    state "中立位采集<br/>约 5 s 静止" as Neutral
+    state "中立位不合格" as NeutralBad
+    state "功能动作采集<br/>掌屈 / 背伸 / 尺偏（桡偏可选）<br/>每段 ≤ 15 s" as Functional
+    state "功能校准不合格" as FunctionalBad
+    state "生成校准档案<br/>置零 + 陀螺零偏 + 主轴 SVD 解剖轴<br/>→ calibration_id" as Profile
+    state "自然放松工作基线采集<br/>自然工作片段，单次 ≤ 5 min" as BaselineCapture
+    state "暂定基线<br/>个人 p50 / p90" as Provisional
+    state "正式基线" as Official
+
+    [*] --> Neutral
+
+    Neutral --> NeutralBad : [晃动 / 样本不足]
+    NeutralBad --> Neutral : [重新录制]
+    Neutral --> Functional : [静止样本 ≥ 30<br/>且占比 ≥ 70%]
+
+    Functional --> FunctionalBad : [缺段 / 区间超 15 s]
+    FunctionalBad --> Functional : [重新录制]
+    Functional --> Profile : [四段齐全<br/>且区间有效]
+
+    Profile --> BaselineCapture
+
+    BaselineCapture --> BaselineCapture : [单次 > 5 min 或质量不足]<br/>该次跳过，不计入
+    BaselineCapture --> Provisional : [单次时长 ≥ 1 min<br/>且有效样本 ≥ 60%]
+
+    Provisional --> Provisional : [新数据 EWMA α = 0.3 更新]<br/>越测越修正
+    Provisional --> Official : [累计有效 ≥ 30 min]
+
+    Official --> Official : [新数据 EWMA α = 0.3]<br/>持续修正
+
+    classDef bad fill:#fbe3e3,stroke:#dc9a9a,stroke-width:1.6px,color:#1f2933;
+    classDef ok fill:#e2f4e4,stroke:#86bf92,stroke-width:1.6px,color:#1f2933;
+    class NeutralBad,FunctionalBad bad
+    class Official ok`;
+
+window.mermaid.initialize({
+  startOnLoad: false,
+  theme: "base",
+  fontFamily: '"PingFang SC","Hiragino Sans GB","Heiti SC","Microsoft YaHei",sans-serif',
+  themeVariables: {
+    background: "#ffffff",
+    primaryColor: "#e8eef4",
+    primaryBorderColor: "#9fb3c8",
+    primaryTextColor: "#1f2933",
+    lineColor: "#7b8794",
+    fontSize: "19px",
+    edgeLabelBackground: "#ffffff"
+  },
+  state: { nodeSpacing: 55, rankSpacing: 100, useMaxWidth: false },
+  flowchart: { htmlLabels: true, curve: "basis" }
+});
+
+(async () => {
+  const { svg } = await window.mermaid.render("calibDiagram", CODE);
+  document.getElementById("mount").innerHTML = svg;
+  window.__diagramReady = true;
+})();
+</script>
+</body>
+</html>

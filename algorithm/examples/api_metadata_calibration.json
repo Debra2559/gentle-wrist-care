@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "calibration_id": "replace-with-calibration-id",
+  "participant_id": "replace-with-participant-id",
+  "sensor_units": {
+    "acceleration": "m/s2",
+    "angular_velocity": "rad/s"
+  },
+  "sensors": [
+    {
+      "sensor_id": "forearm",
+      "placement": "right_distal_forearm",
+      "coordinate_frame": "sensor_local"
+    },
+    {
+      "sensor_id": "hand",
+      "placement": "right_hand_third_metacarpal_dorsum",
+      "coordinate_frame": "sensor_local"
+    }
+  ],
+  "calibration": {
+    "segments": [
+      {
+        "type": "neutral",
+        "start_ms": 0,
+        "end_ms": 4900
+      },
+      {
+        "type": "extension",
+        "start_ms": 6000,
+        "end_ms": 10900
+      },
+      {
+        "type": "flexion",
+        "start_ms": 12000,
+        "end_ms": 16900
+      },
+      {
+        "type": "ulnar_deviation",
+        "start_ms": 18000,
+        "end_ms": 22900
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shewrist"
+version = "0.8.0"
+description = "Auditable offline dual-IMU wrist exposure analysis with replaceable non-controlling ML and explanation adapters"
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.20"]
+
+[project.optional-dependencies]
+visualization = ["matplotlib>=3.5"]
+api = [
+  "fastapi>=0.100,<1",
+  "python-multipart>=0.0.9,<1",
+  "uvicorn>=0.23,<1",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

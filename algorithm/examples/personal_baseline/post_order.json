@@ -1,0 +1,75 @@
+{
+  "participant_id": "DEMO01",
+  "days": [
+    {
+      "day": 1,
+      "session_id": "DEMO01-d01",
+      "metadata": "metadata_d01.json",
+      "data_file": "joint_state_d01.csv",
+      "mechanical_file": "mechanical_d01.csv"
+    },
+    {
+      "day": 2,
+      "session_id": "DEMO01-d02",
+      "metadata": "metadata_d02.json",
+      "data_file": "joint_state_d02.csv",
+      "mechanical_file": "mechanical_d02.csv"
+    },
+    {
+      "day": 3,
+      "session_id": "DEMO01-d03",
+      "metadata": "metadata_d03.json",
+      "data_file": "joint_state_d03.csv",
+      "mechanical_file": "mechanical_d03.csv"
+    },
+    {
+      "day": 4,
+      "session_id": "DEMO01-d04",
+      "metadata": "metadata_d04.json",
+      "data_file": "joint_state_d04.csv",
+      "mechanical_file": "mechanical_d04.csv"
+    },
+    {
+      "day": 5,
+      "session_id": "DEMO01-d05",
+      "metadata": "metadata_d05.json",
+      "data_file": "joint_state_d05.csv",
+      "mechanical_file": "mechanical_d05.csv"
+    },
+    {
+      "day": 6,
+      "session_id": "DEMO01-d06",
+      "metadata": "metadata_d06.json",
+      "data_file": "joint_state_d06.csv",
+      "mechanical_file": "mechanical_d06.csv"
+    },
+    {
+      "day": 7,
+      "session_id": "DEMO01-d07",
+      "metadata": "metadata_d07.json",
+      "data_file": "joint_state_d07.csv",
+      "mechanical_file": "mechanical_d07.csv"
+    },
+    {
+      "day": 8,
+      "session_id": "DEMO01-d08",
+      "metadata": "metadata_d08.json",
+      "data_file": "joint_state_d08.csv",
+      "mechanical_file": "mechanical_d08.csv"
+    },
+    {
+      "day": 9,
+      "session_id": "DEMO01-d09",
+      "metadata": "metadata_d09.json",
+      "data_file": "joint_state_d09.csv",
+      "mechanical_file": "mechanical_d09.csv"
+    },
+    {
+      "day": 10,
+      "session_id": "DEMO01-d10",
+      "metadata": "metadata_d10.json",
+      "data_file": "joint_state_d10.csv",
+      "mechanical_file": "mechanical_d10.csv"
+    }
+  ]
+}

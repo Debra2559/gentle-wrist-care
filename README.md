@@ -24,3 +24,22 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## algorithm/ —— SheWrist 腕部暴露算法后端
+
+`algorithm/` 目录来自 [lxy2137/algorithm_for_predict](https://github.com/lxy2137/algorithm_for_predict)，是 Python 实现的离线分析与后端 API（腕角估计、暴露剂量、阈值状态机、影子 ML 与解释服务）。
+
+本地启动：
+
+```bash
+cd algorithm
+python3 -m pip install -r requirements.txt -r requirements-api.txt
+PYTHONPATH=src python3 scripts/run_api.py --host 127.0.0.1 --port 8000
+```
+
+前端通过服务端环境变量对接（见 `src/lib/shewrist.functions.ts`）：
+
+- `SHEWRIST_API_BASE_URL`：例如 `http://127.0.0.1:8000`
+- `SHEWRIST_API_TOKEN`：可选 Bearer 令牌
+
+未配置时「报告」页自动回退到结构一致的演示数据。接口规范见 `algorithm/docs/backend_api.md`。
