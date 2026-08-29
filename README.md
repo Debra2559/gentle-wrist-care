@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Gentle Care Wrist
+
+我们想为一个面向于有腱鞘炎（曾经有或者正在有）的女生提供一款智能护腕，想让你帮我做一下软件部分的开发（支持传数据到app），app支持展示相关的数据监测、预警、建议等等，你帮我做下这个网站，记得做移动端H5适配；风格我希望是治愈、简洁、温柔的如图
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://gentle-wrist-care.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/eb0b59ab-496e-4411-8bae-ad853b9d5211).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
