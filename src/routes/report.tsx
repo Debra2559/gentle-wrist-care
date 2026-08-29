@@ -1,12 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
-import { useState } from "react";
+import { RefreshCw } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { IPIntro, IPWhisper } from "@/components/ip-anan";
 import { MobileShell } from "@/components/mobile-shell";
 import { getSessionReport } from "@/lib/shewrist.functions";
 import type { SessionReport, TimelineRow } from "@/lib/shewrist-types";
+
+const POLL_MS = 5000;
 
 export const Route = createFileRoute("/report")({
   head: () => ({
