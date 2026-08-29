@@ -1,0 +1,4 @@
+timestamp_ms,theta_FE,theta_RUD,theta_thumb,angular_velocity,calibration_id,quality
+0,0.0,0.0,,0.0,CAL-EXAMPLE,1.0
+20,0.2,-0.1,,11.18,CAL-EXAMPLE,1.0
+40,0.5,-0.2,,15.81,CAL-EXAMPLE,0.95

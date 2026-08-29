@@ -1,0 +1,17 @@
+{
+  "data_status": "SYNTHETIC DEMONSTRATION ONLY - NOT HUMAN EXPERIMENT RESULTS",
+  "condition": "C",
+  "support_level": 1,
+  "reminder_enabled": true,
+  "alert_count": 1,
+  "would_alert_count": 1,
+  "alerts": [
+    {
+      "timestamp_s": 10.0,
+      "zone": "red",
+      "reason": "fe_red+extension_ulnar_compound",
+      "recommend_mechanical": false,
+      "safety_stop": false
+    }
+  ]
+}

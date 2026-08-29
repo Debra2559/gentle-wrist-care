@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "task": "public_wrist_motion_shadow_classification",
+  "labels": [
+    "background",
+    "extension",
+    "flexion",
+    "radial_deviation",
+    "ulnar_deviation"
+  ],
+  "features": [
+    "theta_fe_deg",
+    "theta_rud_deg",
+    "dtheta_fe_deg_s",
+    "dtheta_rud_deg_s",
+    "angular_velocity_deg_s",
+    "quality"
+  ],
+  "window": {
+    "sample_rate_hz": 50.0,
+    "window_seconds": 1.5,
+    "step_seconds": 0.5,
+    "label_strategy": "center_sample",
+    "min_window_quality": 0.5,
+    "max_missing_fraction": 0.1
+  },
+  "model": {
+    "filters": 12,
+    "kernel_size": 7,
+    "pooling": "mean",
+    "epochs": 30,
+    "batch_size": 128,
+    "learning_rate": 0.003,
+    "weight_decay": 0.0001,
+    "patience": 6,
+    "confidence_threshold": 0.55,
+    "gradient_clip_norm": 5.0,
+    "seed": 20260828
+  },
+  "augmentation": {
+    "enabled": true,
+    "gaussian_noise_std": 0.035,
+    "bias_std": 0.025,
+    "amplitude_scale_min": 0.9,
+    "amplitude_scale_max": 1.1,
+    "time_mask_probability": 0.35,
+    "time_mask_fraction_max": 0.12,
+    "channel_mask_probability": 0.08,
+    "max_time_shift_samples": 3
+  },
+  "hmm": {
+    "laplace": 0.5,
+    "self_transition_prior": 20.0,
+    "background_transition_prior": 2.0
+  },
+  "safety": {
+    "operating_mode": "shadow",
+    "allow_alarm_control": false,
+    "allow_mechanical_control": false,
+    "low_quality_behavior": "reject_prediction",
+    "interpretation": "The model recognizes five public-dataset wrist-motion states. It does not estimate tissue strain, disease risk, pain, safety, or treatment need."
+  }
+}

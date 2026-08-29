@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "session_id": "replace-with-unique-session-id",
+  "input_type": "raw_dual_imu",
+  "evidence_type": "bench",
+  "timestamp_basis": "device_ms",
+  "condition": "A",
+  "support_level": 0,
+  "reminder_enabled": false,
+  "firmware_version": "replace-with-firmware-version",
+  "task_version": "typing-mouse-v1",
+  "sensor_units": {
+    "acceleration": "m/s2",
+    "angular_velocity": "rad/s"
+  },
+  "sensors": [
+    {
+      "sensor_id": "forearm",
+      "placement": "right_distal_forearm",
+      "coordinate_frame": "sensor_local"
+    },
+    {
+      "sensor_id": "hand",
+      "placement": "right_hand_third_metacarpal_dorsum",
+      "coordinate_frame": "sensor_local"
+    }
+  ],
+  "calibration": {
+    "calibration_id": "replace-with-calibration-id",
+    "mode": "neutral_plus_static_validation",
+    "reference_pose": "anatomical_neutral",
+    "segments": [
+      {
+        "type": "neutral",
+        "start_ms": 0,
+        "end_ms": 4900
+      },
+      {
+        "type": "extension",
+        "start_ms": 6000,
+        "end_ms": 10900
+      },
+      {
+        "type": "flexion",
+        "start_ms": 12000,
+        "end_ms": 16900
+      },
+      {
+        "type": "ulnar_deviation",
+        "start_ms": 18000,
+        "end_ms": 22900
+      }
+    ]
+  },
+  "options": {
+    "enable_ml_shadow": true,
+    "chunk_size": 128,
+    "threshold_version": "engineering_v1",
+    "explanation_provider": "local_template",
+    "enable_external_api": false,
+    "generate_charts": true,
+    "language": "zh-CN"
+  }
+}

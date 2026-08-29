@@ -1,0 +1,39 @@
+# macOS and editors
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Python environments and caches
+.venv/
+venv/
+env/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Local datasets
+/data/
+/datasets/*
+!/datasets/.gitkeep
+
+# Generated outputs; keep the small model required by the default backend
+/outputs/*
+!/outputs/ml/
+/outputs/ml/*
+!/outputs/ml/activity_cnn_hmm_shadow.npz

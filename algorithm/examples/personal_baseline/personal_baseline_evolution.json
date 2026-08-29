@@ -1,0 +1,800 @@
+{
+  "participant_id": "DEMO01",
+  "days": [
+    {
+      "day": 1,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 1,
+        "observed_minutes": 1.5016666666666665,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 24.490976,
+            "baseline": 24.490976,
+            "ratio": 1.0,
+            "pct_vs_baseline": 0.0
+          },
+          "abs_rud_deg_p90": {
+            "today": 15.260577,
+            "baseline": 15.260577,
+            "ratio": 1.0,
+            "pct_vs_baseline": 0.0
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 368.4173745615984,
+            "baseline": 368.4173745615984,
+            "ratio": 1.0,
+            "pct_vs_baseline": 0.0
+          },
+          "P_high_pct": {
+            "today": 86.90344062153162,
+            "baseline": 86.90344062153162,
+            "ratio": 1.0,
+            "pct_vs_baseline": 0.0
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 19.5927808,
+            "abs_rud_deg_p90": 12.2084616,
+            "dose_rate_deg_s_per_min": 294.7338996492787,
+            "P_high_pct": 69.5227524972253
+          }
+        },
+        "symptom_association": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "n_pairs": 0,
+          "lag_days": 1,
+          "pearson_r": null,
+          "spearman_r": null,
+          "pearson_r_ci95": null,
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days",
+            "insufficient_group_days"
+          ],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 0,
+          "lag_days": 1,
+          "tolerance_exposure": null,
+          "elevated_median_exposure": null,
+          "non_elevated_day_count": 0,
+          "elevated_day_count": 0,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d01/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 2,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 2,
+        "observed_minutes": 3.003333333333333,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 31.305901,
+            "baseline": 24.490976,
+            "ratio": 1.2782626956149072,
+            "pct_vs_baseline": 27.826269561490722
+          },
+          "abs_rud_deg_p90": {
+            "today": 19.507026,
+            "baseline": 15.260577,
+            "ratio": 1.2782626764374636,
+            "pct_vs_baseline": 27.82626764374637
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 747.4080060599333,
+            "baseline": 368.4173745615984,
+            "ratio": 2.02869912676979,
+            "pct_vs_baseline": 102.869912676979
+          },
+          "P_high_pct": {
+            "today": 90.8990011098779,
+            "baseline": 86.90344062153162,
+            "ratio": 1.0459770114942528,
+            "pct_vs_baseline": 4.597701149425292
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 19.5927808,
+            "abs_rud_deg_p90": 12.2084616,
+            "dose_rate_deg_s_per_min": 294.7338996492787,
+            "P_high_pct": 69.5227524972253
+          }
+        },
+        "symptom_association": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "n_pairs": 1,
+          "lag_days": 1,
+          "pearson_r": null,
+          "spearman_r": null,
+          "pearson_r_ci95": null,
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days",
+            "insufficient_group_days"
+          ],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 1,
+          "lag_days": 1,
+          "tolerance_exposure": null,
+          "elevated_median_exposure": null,
+          "non_elevated_day_count": 1,
+          "elevated_day_count": 0,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [
+          {
+            "code": "exposure_above_personal_baseline",
+            "message": "Today's wrist exposure is about 103% above your personal baseline. Consider more micro-breaks or reducing continuous use.",
+            "control_effect": "none",
+            "requires_human_action": true
+          }
+        ],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d02/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 3,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 3,
+        "observed_minutes": 4.504999999999999,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 32.098059,
+            "baseline": 26.535453499999996,
+            "ratio": 1.2096291853463144,
+            "pct_vs_baseline": 20.96291853463143
+          },
+          "abs_rud_deg_p90": {
+            "today": 20.000628,
+            "baseline": 16.5345117,
+            "ratio": 1.2096291903195424,
+            "pct_vs_baseline": 20.962919031954232
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 792.4047994228634,
+            "baseline": 482.1145640110989,
+            "ratio": 1.6436027006324192,
+            "pct_vs_baseline": 64.36027006324193
+          },
+          "P_high_pct": {
+            "today": 90.8990011098779,
+            "baseline": 88.10210876803549,
+            "ratio": 1.0317460317460319,
+            "pct_vs_baseline": 3.1746031746031877
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 21.2283628,
+            "abs_rud_deg_p90": 13.22760936,
+            "dose_rate_deg_s_per_min": 385.69165120887914,
+            "P_high_pct": 70.4816870144284
+          }
+        },
+        "symptom_association": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "n_pairs": 2,
+          "lag_days": 1,
+          "pearson_r": null,
+          "spearman_r": null,
+          "pearson_r_ci95": null,
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days",
+            "insufficient_group_days"
+          ],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 2,
+          "lag_days": 1,
+          "tolerance_exposure": null,
+          "elevated_median_exposure": null,
+          "non_elevated_day_count": 1,
+          "elevated_day_count": 1,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [
+          {
+            "code": "exposure_above_personal_baseline",
+            "message": "Today's wrist exposure is about 64% above your personal baseline. Consider more micro-breaks or reducing continuous use.",
+            "control_effect": "none",
+            "requires_human_action": true
+          }
+        ],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d03/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 4,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 4,
+        "observed_minutes": 6.006666666666666,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 25.807266,
+            "baseline": 28.204235149999995,
+            "ratio": 0.9150138574135382,
+            "pct_vs_baseline": -8.498614258646178
+          },
+          "abs_rud_deg_p90": {
+            "today": 16.080771,
+            "baseline": 17.574346589999998,
+            "ratio": 0.9150138764846107,
+            "pct_vs_baseline": -8.49861235153892
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 440.2102564927859,
+            "baseline": 575.2016346346281,
+            "ratio": 0.7653146826893327,
+            "pct_vs_baseline": -23.468531731066733
+          },
+          "P_high_pct": {
+            "today": 86.90344062153162,
+            "baseline": 88.94117647058822,
+            "ratio": 0.977088948787062,
+            "pct_vs_baseline": -2.2911051212937994
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 22.56338812,
+            "abs_rud_deg_p90": 14.059477271999999,
+            "dose_rate_deg_s_per_min": 460.1613077077025,
+            "P_high_pct": 71.15294117647058
+          }
+        },
+        "symptom_association": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "n_pairs": 3,
+          "lag_days": 1,
+          "pearson_r": null,
+          "spearman_r": null,
+          "pearson_r_ci95": null,
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days",
+            "insufficient_group_days"
+          ],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 3,
+          "lag_days": 1,
+          "tolerance_exposure": null,
+          "elevated_median_exposure": null,
+          "non_elevated_day_count": 2,
+          "elevated_day_count": 1,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d04/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 5,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 5,
+        "observed_minutes": 7.508333333333333,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 26.218165,
+            "baseline": 27.485144404999993,
+            "ratio": 0.9539031199425131,
+            "pct_vs_baseline": -4.609688005748697
+          },
+          "abs_rud_deg_p90": {
+            "today": 16.336806,
+            "baseline": 17.126273913,
+            "ratio": 0.9539031130174358,
+            "pct_vs_baseline": -4.6096886982564245
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 462.84315302996686,
+            "baseline": 534.7042211920755,
+            "ratio": 0.8656059456536536,
+            "pct_vs_baseline": -13.439405434634638
+          },
+          "P_high_pct": {
+            "today": 86.90344062153162,
+            "baseline": 88.32985571587123,
+            "ratio": 0.9838512688288777,
+            "pct_vs_baseline": -1.6148731171122215
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 21.988115523999994,
+            "abs_rud_deg_p90": 13.701019130399999,
+            "dose_rate_deg_s_per_min": 427.7633769536604,
+            "P_high_pct": 70.66388457269699
+          }
+        },
+        "symptom_association": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "n_pairs": 4,
+          "lag_days": 1,
+          "pearson_r": null,
+          "spearman_r": null,
+          "pearson_r_ci95": null,
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days",
+            "insufficient_group_days"
+          ],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 4,
+          "lag_days": 1,
+          "tolerance_exposure": null,
+          "elevated_median_exposure": null,
+          "non_elevated_day_count": 2,
+          "elevated_day_count": 2,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d05/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 6,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 6,
+        "observed_minutes": 9.01,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 31.783408,
+            "baseline": 27.105050583499995,
+            "ratio": 1.172600947638442,
+            "pct_vs_baseline": 17.260094763844208
+          },
+          "abs_rud_deg_p90": {
+            "today": 19.804566,
+            "baseline": 16.889433539099997,
+            "ratio": 1.1726009610773096,
+            "pct_vs_baseline": 17.26009610773095
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 774.5317643507215,
+            "baseline": 513.1459007434429,
+            "ratio": 1.5093792296276443,
+            "pct_vs_baseline": 50.937922962764425
+          },
+          "P_high_pct": {
+            "today": 90.8990011098779,
+            "baseline": 87.90193118756935,
+            "ratio": 1.0340956095254978,
+            "pct_vs_baseline": 3.409560952549795
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 21.6840404668,
+            "abs_rud_deg_p90": 13.511546831279999,
+            "dose_rate_deg_s_per_min": 410.51672059475436,
+            "P_high_pct": 70.32154495005548
+          }
+        },
+        "symptom_association": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "n_pairs": 5,
+          "lag_days": 1,
+          "pearson_r": null,
+          "spearman_r": null,
+          "pearson_r_ci95": null,
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days",
+            "insufficient_group_days"
+          ],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 5,
+          "lag_days": 1,
+          "tolerance_exposure": null,
+          "elevated_median_exposure": null,
+          "non_elevated_day_count": 3,
+          "elevated_day_count": 2,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [
+          {
+            "code": "exposure_above_personal_baseline",
+            "message": "Today's wrist exposure is about 51% above your personal baseline. Consider more micro-breaks or reducing continuous use.",
+            "control_effect": "none",
+            "requires_human_action": true
+          }
+        ],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d06/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 7,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 7,
+        "observed_minutes": 10.511666666666667,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 17.177559,
+            "baseline": 28.508557808449993,
+            "ratio": 0.6025404412042386,
+            "pct_vs_baseline": -39.745955879576144
+          },
+          "abs_rud_deg_p90": {
+            "today": 10.703512,
+            "baseline": 17.76397327737,
+            "ratio": 0.6025404245364121,
+            "pct_vs_baseline": -39.74595754635878
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 52.855923396226444,
+            "baseline": 591.5616598256264,
+            "ratio": 0.08934981251456812,
+            "pct_vs_baseline": -91.0650187485432
+          },
+          "P_high_pct": {
+            "today": 46.947835738068854,
+            "baseline": 88.8010521642619,
+            "ratio": 0.5286855796621188,
+            "pct_vs_baseline": -47.13144203378812
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 22.806846246759996,
+            "abs_rud_deg_p90": 14.211178621896,
+            "dose_rate_deg_s_per_min": 473.2493278605011,
+            "P_high_pct": 71.04084173140953
+          }
+        },
+        "symptom_association": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "n_pairs": 6,
+          "lag_days": 1,
+          "pearson_r": null,
+          "spearman_r": null,
+          "pearson_r_ci95": null,
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "not_evaluable",
+          "reasons": [
+            "insufficient_paired_days"
+          ],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 6,
+          "lag_days": 1,
+          "tolerance_exposure": null,
+          "elevated_median_exposure": null,
+          "non_elevated_day_count": 3,
+          "elevated_day_count": 3,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d07/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 8,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 8,
+        "observed_minutes": 12.013333333333334,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 24.767143,
+            "baseline": 25.109258165914994,
+            "ratio": 0.9863749393289761,
+            "pct_vs_baseline": -1.3625060671023874
+          },
+          "abs_rud_deg_p90": {
+            "today": 15.432659,
+            "baseline": 15.645834894158998,
+            "ratio": 0.9863749109203125,
+            "pct_vs_baseline": -1.3625089079687471
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 383.3849237513874,
+            "baseline": 429.94993889680643,
+            "ratio": 0.8916966583018977,
+            "pct_vs_baseline": -10.830334169810225
+          },
+          "P_high_pct": {
+            "today": 86.90344062153162,
+            "baseline": 76.24508723640398,
+            "ratio": 1.1397906904097383,
+            "pct_vs_baseline": 13.979069040973831
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 20.087406532731997,
+            "abs_rud_deg_p90": 12.516667915327199,
+            "dose_rate_deg_s_per_min": 343.95995111744514,
+            "P_high_pct": 60.99606978912318
+          }
+        },
+        "symptom_association": {
+          "status": "evaluable",
+          "reasons": [],
+          "n_pairs": 7,
+          "lag_days": 1,
+          "pearson_r": 0.9872572569413886,
+          "spearman_r": 1.0,
+          "pearson_r_ci95": [
+            0.9720599713941191,
+            0.999200009488196
+          ],
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "evaluable",
+          "reasons": [],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 7,
+          "lag_days": 1,
+          "tolerance_exposure": 445.8684806270811,
+          "elevated_median_exposure": 774.5317643507215,
+          "non_elevated_day_count": 4,
+          "elevated_day_count": 3,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [
+          {
+            "code": "exposure_pain_association_observed",
+            "message": "Your higher-exposure days tend to be followed by higher self-reported pain. If pain persists or worsens, consider a clinical follow-up. This tool does not diagnose.",
+            "control_effect": "none",
+            "requires_human_action": true
+          }
+        ],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d08/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 9,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 9,
+        "observed_minutes": 13.515,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 21.74244,
+            "baseline": 25.006623616140494,
+            "ratio": 0.8694672393104028,
+            "pct_vs_baseline": -13.053276068959716
+          },
+          "abs_rud_deg_p90": {
+            "today": 13.547936,
+            "baseline": 15.581882125911298,
+            "ratio": 0.8694672370464782,
+            "pct_vs_baseline": -13.05327629535218
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 240.38813507214212,
+            "baseline": 415.9804343531807,
+            "ratio": 0.5778832733946445,
+            "pct_vs_baseline": -42.21167266053555
+          },
+          "P_high_pct": {
+            "today": 72.91897891231967,
+            "baseline": 79.44259325194227,
+            "ratio": 0.9178826612704627,
+            "pct_vs_baseline": -8.21173387295373
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 20.005298892912396,
+            "abs_rud_deg_p90": 12.46550570072904,
+            "dose_rate_deg_s_per_min": 332.7843474825446,
+            "P_high_pct": 63.55407460155382
+          }
+        },
+        "symptom_association": {
+          "status": "evaluable",
+          "reasons": [],
+          "n_pairs": 8,
+          "lag_days": 1,
+          "pearson_r": 0.981630656083377,
+          "spearman_r": 0.9761904761904763,
+          "pearson_r_ci95": [
+            0.9293903789479905,
+            0.9974586191707009
+          ],
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "evaluable",
+          "reasons": [],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 8,
+          "lag_days": 1,
+          "tolerance_exposure": 397.59125693673707,
+          "elevated_median_exposure": 760.9698852053274,
+          "non_elevated_day_count": 4,
+          "elevated_day_count": 4,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [
+          {
+            "code": "exposure_pain_association_observed",
+            "message": "Your higher-exposure days tend to be followed by higher self-reported pain. If pain persists or worsens, consider a clinical follow-up. This tool does not diagnose.",
+            "control_effect": "none",
+            "requires_human_action": true
+          }
+        ],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d09/artifacts/personal_baseline.json"
+      }
+    },
+    {
+      "day": 10,
+      "personal_baseline": {
+        "participant_id": "DEMO01",
+        "status": "provisional",
+        "role": "auto",
+        "update_applied": true,
+        "session_count": 10,
+        "observed_minutes": 15.016666666666667,
+        "relative_exposure": {
+          "abs_fe_deg_p90": {
+            "today": 15.890612,
+            "baseline": 24.027368531298343,
+            "ratio": 0.6613546539356024,
+            "pct_vs_baseline": -33.864534606439754
+          },
+          "abs_rud_deg_p90": {
+            "today": 9.901602,
+            "baseline": 14.971698288137908,
+            "ratio": 0.6613546312140854,
+            "pct_vs_baseline": -33.86453687859146
+          },
+          "dose_rate_deg_s_per_min": {
+            "today": 20.959735604883477,
+            "baseline": 363.3027445688691,
+            "ratio": 0.057692202765372354,
+            "pct_vs_baseline": -94.23077972346276
+          },
+          "P_high_pct": {
+            "today": 32.96337402885689,
+            "baseline": 77.48550895005549,
+            "ratio": 0.4254134027835315,
+            "pct_vs_baseline": -57.45865972164685
+          }
+        },
+        "goal_line": {
+          "target_reduction_pct": 20.0,
+          "targets": {
+            "abs_fe_deg_p90": 19.221894825038675,
+            "abs_rud_deg_p90": 11.977358630510327,
+            "dose_rate_deg_s_per_min": 290.6421956550953,
+            "P_high_pct": 61.988407160044396
+          }
+        },
+        "symptom_association": {
+          "status": "evaluable",
+          "reasons": [],
+          "n_pairs": 9,
+          "lag_days": 1,
+          "pearson_r": 0.979355413956472,
+          "spearman_r": 0.9833333333333333,
+          "pearson_r_ci95": [
+            0.9174253740506585,
+            0.99675682593313
+          ],
+          "interpretation": "Single-subject (n-of-1) association between this person's own exposure and their self-reported pain. It is descriptive, not causal, and is not a disease-risk or diagnostic estimate."
+        },
+        "exposure_tolerance": {
+          "status": "evaluable",
+          "reasons": [],
+          "primary_metric": "dose_rate_deg_s_per_min",
+          "n_pairs": 9,
+          "lag_days": 1,
+          "tolerance_exposure": 383.3849237513874,
+          "elevated_median_exposure": 760.9698852053274,
+          "non_elevated_day_count": 5,
+          "elevated_day_count": 4,
+          "interpretation": "Observational personal exposure level below which this person's own pain reports tended not to be elevated. It is an engineering statistic for reflection, not a validated clinical or safety threshold."
+        },
+        "suggestions": [
+          {
+            "code": "exposure_pain_association_observed",
+            "message": "Your higher-exposure days tend to be followed by higher self-reported pain. If pain persists or worsens, consider a clinical follow-up. This tool does not diagnose.",
+            "control_effect": "none",
+            "requires_human_action": true
+          }
+        ],
+        "control_effect": "none",
+        "artifact_url": "/api/v1/sessions/DEMO01-d10/artifacts/personal_baseline.json"
+      }
+    }
+  ]
+}

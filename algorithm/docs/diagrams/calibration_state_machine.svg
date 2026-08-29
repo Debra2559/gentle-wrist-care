@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 1 L 9 5 L 0 9 z" fill="#7b8794"/>
+</marker>
+</defs>
+<rect width="1600" height="900" fill="#ffffff"/>
+<circle cx="96" cy="250" r="9" fill="#3e4c59"/>
+<path d="M 105 250 L 119.0 250" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 204 203.0 C 204 167.0, 204 162.0, 204 127.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 296 127.0 C 296 162.0, 296 167.0, 296 203.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 379.0 250 L 489.0 250" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 600 192.0 C 600 160.0, 600 152.0, 600 121.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 720 121.0 C 720 152.0, 720 160.0, 720 192.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 829.0 250 L 968.0 250" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 1160 315.0 C 1160 420.0, 1160 430.0, 1070 430.0 L 119.0 430.0 C 79.0 430.0, 79.0 440.0, 79.0 558 C 79.0 592, 107.0 592, 191.0 592" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 320 538.0 C 288 466.0, 456 466.0, 424 536.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 432 646.0 C 432 728.0, 832 724.0, 832 644.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 820 542.0 C 794 472.0, 950 472.0, 924 540.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 1001.0 592 L 1216.0 592" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<path d="M 1278 558.0 C 1252 492.0, 1392 492.0, 1366 556.0" fill="none" stroke="#7b8794" stroke-width="1.6" marker-end="url(#arrow)" stroke-linecap="round"/>
+<rect x="125.0" y="207.0" width="250" height="86" rx="14" ry="14" fill="#e8eef4" stroke="#9fb3c8" stroke-width="1.7"/>
+<text x="250.0" y="244.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">中立位采集</text>
+<text x="250.0" y="269.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d" text-anchor="middle">约 5 s 静止</text>
+<rect x="140.0" y="70.0" width="220" height="52" rx="14" ry="14" fill="#fbe3e3" stroke="#dc9a9a" stroke-width="1.7"/>
+<text x="250.0" y="102.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">中立位不合格</text>
+<rect x="495.0" y="196.0" width="330" height="108" rx="14" ry="14" fill="#e8eef4" stroke="#9fb3c8" stroke-width="1.7"/>
+<text x="660.0" y="231.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">功能动作采集</text>
+<text x="660.0" y="256.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d" text-anchor="middle">掌屈 / 背伸 / 尺偏（桡偏可选）</text>
+<text x="660.0" y="281.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d" text-anchor="middle">每段 ≤ 15 s</text>
+<rect x="545.0" y="64.0" width="230" height="52" rx="14" ry="14" fill="#fbe3e3" stroke="#dc9a9a" stroke-width="1.7"/>
+<text x="660.0" y="96.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">功能校准不合格</text>
+<rect x="974.0" y="189.0" width="372" height="122" rx="14" ry="14" fill="#e8eef4" stroke="#9fb3c8" stroke-width="1.7"/>
+<text x="1160.0" y="231.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">生成校准档案</text>
+<text x="1160.0" y="256.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d" text-anchor="middle">置零 + 陀螺零偏 + 主轴 SVD 解剖轴</text>
+<text x="1160.0" y="281.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d" text-anchor="middle">→ calibration_id</text>
+<rect x="197.0" y="542.0" width="350" height="100" rx="14" ry="14" fill="#e8eef4" stroke="#9fb3c8" stroke-width="1.7"/>
+<text x="372.0" y="586.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">自然放松工作基线采集</text>
+<text x="372.0" y="611.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d" text-anchor="middle">自然工作片段，单次 ≤ 5 min</text>
+<rect x="747.0" y="546.0" width="250" height="92" rx="14" ry="14" fill="#e8eef4" stroke="#9fb3c8" stroke-width="1.7"/>
+<text x="872.0" y="586.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">暂定基线</text>
+<text x="872.0" y="611.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d" text-anchor="middle">个人 p50 / p90</text>
+<rect x="1222.0" y="562.0" width="200" height="60" rx="14" ry="14" fill="#e2f4e4" stroke="#86bf92" stroke-width="1.7"/>
+<text x="1322.0" y="598.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="21" fill="#1f2933" text-anchor="middle">正式基线</text>
+<text x="102.0" y="170.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[晃动 /</text>
+<text x="102.0" y="190.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">样本不足]</text>
+<text x="382.0" y="170.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[重新</text>
+<text x="382.0" y="190.5" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">录制]</text>
+<text x="435.0" y="220.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[静止样本 ≥ 30</text>
+<text x="435.0" y="240.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">且占比 ≥ 70%]</text>
+<text x="488.0" y="162.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[缺段 /</text>
+<text x="488.0" y="182.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">区间超 15 s]</text>
+<text x="820.0" y="162.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[重新</text>
+<text x="820.0" y="182.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">录制]</text>
+<text x="899.5" y="220.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[四段齐全</text>
+<text x="899.5" y="240.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">且区间有效]</text>
+<text x="806.0" y="416.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="15" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">（校准档案生成后进入个人基线阶段）</text>
+<text x="372.0" y="454.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[单次 &gt; 5 min 或质量不足]</text>
+<text x="372.0" y="474.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">该次跳过，不计入</text>
+<text x="632.0" y="746.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[单次时长 ≥ 1 min 且有效样本 ≥ 60%]</text>
+<text x="872.0" y="462.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[新数据 EWMA α = 0.3 更新]</text>
+<text x="872.0" y="482.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">越测越修正</text>
+<text x="1109.5" y="558.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[累计有效</text>
+<text x="1109.5" y="578.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">≥ 30 min]</text>
+<text x="1322.0" y="482.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">[新数据 EWMA α = 0.3]</text>
+<text x="1322.0" y="502.0" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="16" fill="#1f2933" text-anchor="middle" style="paint-order:stroke;stroke:#ffffff;stroke-width:5px;stroke-linejoin:round">持续修正</text>
+<rect x="512" y="800" width="26" height="15" rx="4" fill="#e8eef4" stroke="#9fb3c8" stroke-width="1.4"/>
+<text x="548" y="812" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d">过程状态</text>
+<rect x="646" y="800" width="26" height="15" rx="4" fill="#fbe3e3" stroke="#dc9a9a" stroke-width="1.4"/>
+<text x="682" y="812" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d">失败态（需重新录制）</text>
+<rect x="882" y="800" width="26" height="15" rx="4" fill="#e2f4e4" stroke="#86bf92" stroke-width="1.4"/>
+<text x="918" y="812" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="17" fill="#52606d">正式完成态</text>
+<text x="800.0" y="856" font-family="PingFang SC, Hiragino Sans GB, Heiti SC, Microsoft YaHei, sans-serif" font-size="23" fill="#1f2933" text-anchor="middle">图　校准阶段状态图：中立位校准 → 功能校准 → 个人基线（暂定 / 正式）</text>
+</svg>
