@@ -2,8 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
 /**
- * 硬件遥测上报接口（对护腕固件 / 网关开放，公网可访问）。
- * 鉴权：请求头携带 x-device-token: <DEVICE_INGEST_TOKEN>。
+ * 硬件遥测上报接口（对护腕固件 / 网关开放，公网可访问，无需鉴权）。
  * 支持单条或批量：samples 数组最多 200 条。
  */
 const sampleSchema = z.object({
@@ -26,12 +25,6 @@ export const Route = createFileRoute("/api/public/ingest")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const expected = process.env["DEVICE_INGEST_TOKEN"];
-        const token = request.headers.get("x-device-token");
-        if (!expected || token !== expected) {
-          return Response.json({ error: "invalid_token" }, { status: 401 });
-        }
-
         let payload: unknown;
         try {
           payload = await request.json();
