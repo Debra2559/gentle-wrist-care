@@ -23,11 +23,24 @@
 
 当前为有线工程样机（USB 供电、串口通信），无线化方案已完成设计但尚未装机。计划未来加入热敷和气囊支撑功能。
 
-## 技术栈
+## 项目链接
 
-本项目前端使用 [Lovable](https://lovable.dev) + TanStack Start + React + Tailwind CSS 构建，移动端 H5 优先，风格治愈、简洁、温柔。
+**在线体验**: https://gentle-wrist-care.lovable.app
 
-**Live app**: https://gentle-wrist-care.lovable.app
+## 界面预览
+
+| 今日 | 数据监测 | 智能预警 |
+| --- | --- | --- |
+| <img src="docs/screenshots/01-today.png" width="240" alt="今日概览页" /> | <img src="docs/screenshots/02-monitor.png" width="240" alt="数据监测页" /> | <img src="docs/screenshots/03-alerts.png" width="240" alt="智能预警页" /> |
+
+| 照顾建议 | 护腕能力 |
+| --- | --- |
+| <img src="docs/screenshots/04-advice.png" width="240" alt="照顾建议页" /> | <img src="docs/screenshots/05-device.webp" width="240" alt="护腕能力页" /> |
+
+### 工程样机
+
+<img src="docs/screenshots/06-prototype.jpg" width="420" alt="双 IMU 与震动马达的有线工程样机" />
+
 
 ## 本地开发
 
